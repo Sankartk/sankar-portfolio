@@ -1,5 +1,16 @@
 import Navbar from "../../../components/Navbar"
 
+export const metadata = {
+  title: 'Ledger Reconciler — Sankar Kalyanakumar',
+  description: 'Automated multi-pass bank reconciliation engine with Streamlit dashboard and 27 automated tests.',
+  openGraph: {
+    title: 'Ledger Reconciler',
+    description: 'Automated multi-pass bank reconciliation engine with Streamlit dashboard and 27 automated tests.',
+    url: 'https://sankartk.dev/projects/ledger-reconciler',
+    images: [{ url: 'https://sankartk.dev/ledger_reconciler_thumbnail.png', width: 1200, height: 627 }],
+  },
+}
+
 export default function LedgerReconcilerPage() {
   return (
     <main className="bg-white text-gray-900 min-h-screen font-sans">

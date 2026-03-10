@@ -1,5 +1,16 @@
 import Navbar from "../../../components/Navbar"
 
+export const metadata = {
+  title: 'Ops Copilot — Sankar Kalyanakumar',
+  description: 'LLM-powered ops assistant with multi-stage RAG pipeline on AWS Bedrock and Slack integration.',
+  openGraph: {
+    title: 'Ops Copilot',
+    description: 'LLM-powered ops assistant with multi-stage RAG pipeline on AWS Bedrock and Slack integration.',
+    url: 'https://sankartk.dev/projects/ops-copilot',
+    images: [{ url: 'https://sankartk.dev/ops_copilot_thumbnail.png', width: 1200, height: 627 }],
+  },
+}
+
 export default function OpsCopilot() {
   return (
     <main className="bg-white text-gray-900 min-h-screen font-sans">
