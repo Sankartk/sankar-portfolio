@@ -4,7 +4,7 @@ Personal engineering portfolio built with **Next.js 15 (App Router)** and **Tail
 
 ## Live Site
 
-[sankar-portfolio.vercel.app](https://sankar-portfolio.vercel.app) <!-- update once Vercel URL is known -->
+[sankartk.dev](https://sankartk.dev)
 
 ## Tech Stack
 
