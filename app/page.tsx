@@ -7,7 +7,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="bg-slate-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-10">
+        <div className="max-w-6xl mx-auto px-6 pt-12 pb-10">
           <div className="flex items-start gap-5">
             <img src="/profile.jpg" className="w-14 h-14 rounded-full border-2 border-slate-700 object-cover flex-shrink-0 mt-1" alt="Sankar" />
             <div className="flex flex-col gap-2 flex-1">
@@ -37,7 +37,7 @@ export default function Home() {
 
       {/* PRINCIPLES STRIP */}
       <section className="bg-slate-900 border-t border-slate-800">
-        <div className="max-w-5xl mx-auto px-6 py-7">
+        <div className="max-w-6xl mx-auto px-6 py-7">
           <p className="text-slate-600 text-xs font-mono mb-5 uppercase tracking-widest">// how I think about engineering</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
@@ -71,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* PROJECTS */}
-      <section className="max-w-5xl mx-auto px-6 pt-12 pb-10">
+      <section className="max-w-6xl mx-auto px-6 pt-12 pb-10">
         <div className="flex items-baseline justify-between mb-8">
           <div>
             <p className="text-xs font-mono text-gray-400 mb-1">$ ls ~/projects</p>
@@ -142,8 +142,8 @@ export default function Home() {
                 ))}
               </div>
               <div className="bg-[#070c14] rounded-lg px-3 py-2 font-mono text-xs border border-slate-800">
-                <p className="text-slate-500 mb-1">$ uvicorn app.main:app --reload --port 8001</p>
-                <p className="text-cyan-400">&#x25B6;&nbsp; localhost:8001 &mdash; Plotly dashboard, drill-down, CSV export</p>
+                <p className="text-slate-500 mb-1">$ curl -s localhost:8001/api/forecast/BRK-01 | jq .summary</p>
+                <p className="text-cyan-400">&#x25B6;&nbsp; peak Thu Mar-19 &middot; order_rec $148K &middot; MAPE 9.1% &middot; 0 anomalies</p>
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
                 <a href="/projects/cashcast" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">Full write-up &rarr;</a>
@@ -362,7 +362,7 @@ export default function Home() {
         </div>{/* end 2x2 grid */}
       </section>
 
-      <footer className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400 border-t border-gray-100">
+      <footer className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400 border-t border-gray-100">
         <span>Newark, DE &middot; karthicks399@gmail.com</span>
         <div className="flex gap-6">
           <a href="https://linkedin.com/in/sankartk11" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
