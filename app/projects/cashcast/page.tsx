@@ -198,6 +198,120 @@ export default function CashCastPage() {
         </ul>
       </section>
 
+      {/* DASHBOARD SECTION */}
+      <section className="max-w-screen-xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
+        <p className="text-xs font-mono text-slate-500 mb-2 uppercase tracking-widest">// ops dashboard</p>
+        <h2 className="text-xl font-bold text-white mb-1">Branch Intelligence Dashboard</h2>
+        <p className="text-slate-400 text-sm mb-6">Plotly.js + FastAPI &mdash; branch health cards, 14-day forecast with confidence bands, per-branch order recommendations, anomaly flags, AI narrative</p>
+
+        <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+          {/* top bar */}
+          <div className="flex items-center justify-between px-5 py-3 bg-slate-900 border-b border-slate-800">
+            <span className="text-xs font-mono text-cyan-400 font-bold">&#9675; CashCast</span>
+            <span className="text-xs font-mono text-slate-500">Branch Intelligence Dashboard</span>
+            <span className="text-xs text-slate-600">localhost:8001</span>
+          </div>
+
+          {/* KPI row */}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-slate-800 border-b border-slate-800">
+            {[
+              { label: "Branches",  value: "6",      color: "#22d3ee" },
+              { label: "Avg MAPE",  value: "9.1%",   color: "#4ade80" },
+              { label: "Total Rec", value: "$867K",  color: "#22d3ee" },
+              { label: "Horizon",   value: "14d",    color: "#94a3b8" },
+              { label: "Anomalies", value: "2",      color: "#fbbf24" },
+              { label: "High Risk", value: "1",      color: "#f87171" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="bg-slate-950 p-3 text-center">
+                <p className="text-[9px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
+                <p className="text-2xl font-extrabold leading-none mt-1" style={{ color }}>{value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* forecast chart + branch recs */}
+          <div className="grid md:grid-cols-3 gap-0">
+            <div className="md:col-span-2 p-5 border-r border-slate-800">
+              <p className="text-[10px] font-mono text-slate-500 mb-3">// 14-day demand forecast &mdash; BRK-01 Downtown (with confidence band)</p>
+              <svg viewBox="0 0 340 90" width="100%">
+                {[15,33,51,69].map(y => (
+                  <line key={y} x1="30" y1={y} x2="340" y2={y} stroke="#1e293b" strokeWidth="0.8"/>
+                ))}
+                {[["$200K",15],["$150K",33],["$100K",51],["$50K",69]].map(([l,y]) => (
+                  <text key={String(y)} x="26" y={Number(y)+3} textAnchor="end" fontSize="7" fill="#475569">{l}</text>
+                ))}
+                {/* confidence band */}
+                <polygon points="40,28 65,24 90,32 115,20 140,18 165,25 190,22 215,16 240,14 265,20 290,17 315,22 315,65 290,58 265,54 240,47 215,44 190,50 165,56 140,50 115,48 90,62 65,56 40,60" fill="#22d3ee" opacity="0.1"/>
+                {/* actual bars — past 7 days */}
+                {[[40,22],[65,19],[90,26],[115,16],[140,14],[165,20],[190,17]].map(([x,h],i) => (
+                  <rect key={i} x={Number(x)-7} y={82-Number(h)} width="13" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.5"/>
+                ))}
+                {/* forecast bars — next 7 days */}
+                {[[215,12],[240,10],[265,16],[290,14],[315,18]].map(([x,h],i) => (
+                  <rect key={i} x={Number(x)-7} y={82-Number(h)} width="13" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.18" stroke="#22d3ee" strokeWidth="0.6"/>
+                ))}
+                {/* trend line */}
+                <polyline points="40,44 65,40 90,48 115,34 140,32 165,38 190,36 215,28 240,26 265,34 290,30 315,36" fill="none" stroke="#22d3ee" strokeWidth="1.5"/>
+                {/* anomaly marker */}
+                <text x="90" y="24" textAnchor="middle" fontSize="9" fill="#f87171">&#10005;</text>
+                {/* labels */}
+                <text x="40"  y="88" textAnchor="middle" fontSize="6.5" fill="#475569">Mar 9</text>
+                <text x="165" y="88" textAnchor="middle" fontSize="6.5" fill="#475569">Mar 15</text>
+                <text x="265" y="88" textAnchor="middle" fontSize="6.5" fill="#fbbf24">forecast</text>
+              </svg>
+            </div>
+
+            {/* branch order recs */}
+            <div className="p-5">
+              <p className="text-[10px] font-mono text-slate-500 mb-3">// per-branch order recs</p>
+              <div className="flex flex-col gap-2">
+                {[
+                  ["BRK-01","$148K","#4ade80",59],
+                  ["BRK-02","$93K", "#4ade80",37],
+                  ["BRK-03","$112K","#fbbf24",45],
+                  ["BRK-04","$67K", "#4ade80",27],
+                  ["BRK-05","$204K","#f87171",82],
+                  ["BRK-06","$89K", "#4ade80",36],
+                ].map(([branch,rec,color,pct]) => (
+                  <div key={String(branch)} className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono text-cyan-400 w-11 flex-shrink-0">{branch}</span>
+                    <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
+                      <div className="h-1.5 rounded" style={{ background: String(color), width: `${pct}%` }}/>
+                    </div>
+                    <span className="text-[9px] font-mono w-10 text-right font-bold" style={{ color: String(color) }}>{rec}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-800">
+                <p className="text-[10px] font-mono text-slate-500 mb-1">// AI narrative &mdash; BRK-01</p>
+                <p className="text-[10px] text-slate-400 leading-relaxed italic">&ldquo;14-day demand +18% above 90d median. Peak Thu Mar-19 at $52K. 1 anomaly flagged Mar-11.&rdquo;</p>
+              </div>
+            </div>
+          </div>
+
+          {/* branch health cards row */}
+          <div className="border-t border-slate-800 p-5">
+            <p className="text-[10px] font-mono text-slate-500 mb-3">// branch health overview</p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+              {[
+                ["BRK-01","$312K","healthy","#4ade80"],
+                ["BRK-02","$198K","healthy","#4ade80"],
+                ["BRK-03","$87K", "low",    "#fbbf24"],
+                ["BRK-04","$445K","healthy","#4ade80"],
+                ["BRK-05","$52K", "risk",   "#f87171"],
+                ["BRK-06","$231K","healthy","#4ade80"],
+              ].map(([branch,vault,status,color]) => (
+                <div key={String(branch)} className="bg-slate-900 rounded-lg p-2.5 border border-slate-800 text-center">
+                  <p className="text-[9px] font-mono text-cyan-400 font-bold">{branch}</p>
+                  <p className="text-sm font-extrabold text-white mt-0.5">{vault}</p>
+                  <p className="text-[8px] font-bold mt-0.5 uppercase tracking-wide" style={{ color: String(color) }}>{status}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer links */}
       <section className="max-w-screen-xl mx-auto px-6 pb-12 border-t border-slate-800 pt-8">
         <div className="flex gap-6">

@@ -347,6 +347,118 @@ curl "https://<api-gw-id>.execute-api.us-east-1.amazonaws.com/prod/approve?token
         </div>
       </section>
 
+      {/* QUERY INTERFACE */}
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">03</div>
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">Streamlit query interface</h2>
+            <p className="text-gray-500 text-sm mt-1">FAISS retrieval &middot; source-cited answers &middot; approval-gated remediation</p>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-slate-950 overflow-hidden">
+          {/* top bar */}
+          <div className="flex items-center justify-between px-5 py-3 bg-slate-900 border-b border-slate-800">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500"/>
+            </div>
+            <span className="text-xs font-mono text-blue-400 font-bold">&#9675; Ops Copilot &nbsp;&mdash;&nbsp; RAG Interface</span>
+            <span className="text-xs text-slate-600">localhost:8501</span>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-0">
+            {/* left: chat panel */}
+            <div className="md:col-span-2 p-5 border-r border-slate-800 flex flex-col gap-4">
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// runbook context loaded</p>
+                <div className="flex flex-col gap-1.5 text-xs">
+                  {[
+                    ["alb-runbook.md", "12 chunks"],
+                    ["rds-runbook.md", "9 chunks"],
+                    ["ecs-runbook.md", "7 chunks"],
+                  ].map(([file, n]) => (
+                    <div key={file} className="flex items-center justify-between bg-slate-900 rounded px-3 py-1.5 border border-slate-800">
+                      <span className="font-mono text-blue-300 text-[10px]">{file}</span>
+                      <span className="text-slate-600 text-[9px]">{n}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// cosine similarity threshold: 0.72</p>
+                <div className="h-1.5 bg-slate-800 rounded overflow-hidden">
+                  <div className="h-1.5 bg-blue-500 rounded" style={{ width: "72%" }}/>
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// model: nomic-embed-text (local via Ollama)</p>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-400"/>
+                  <span className="text-[10px] text-green-400 font-mono">FAISS index ready &mdash; 28 vectors</span>
+                </div>
+              </div>
+            </div>
+
+            {/* right: query + response */}
+            <div className="md:col-span-3 p-5 flex flex-col gap-4">
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// incident query</p>
+                <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5">
+                  <span className="text-sm font-mono text-slate-300 flex-1">prod-db disk full &mdash; what do I do?</span>
+                  <span className="text-xs bg-blue-700 text-white px-3 py-1 rounded font-bold cursor-default">ask</span>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// retrieved chunk &mdash; top-1 of 3</p>
+                <div className="bg-slate-900 rounded-lg border border-slate-800 p-4 flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] bg-slate-800 text-blue-300 font-mono px-2 py-1 rounded">runbooks/rds-runbook.md #L42</span>
+                    <span className="text-[9px] text-slate-500">similarity 0.93</span>
+                  </div>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Run <code className="text-blue-400 bg-slate-800 px-1.5 py-0.5 rounded text-xs">df -h /var/lib/postgresql</code> to confirm disk usage.
+                    If above 90%, execute the cleanup procedure in section 3.2 to reclaim WAL logs and vacuum dead tuples.
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] bg-slate-800 text-slate-500 font-mono px-2 py-0.5 rounded">runbooks/rds-runbook.md #L58</span>
+                    <span className="text-[9px] text-slate-600">0.81</span>
+                    <span className="text-[10px] bg-slate-800 text-slate-500 font-mono px-2 py-0.5 rounded">runbooks/alb-runbook.md #L19</span>
+                    <span className="text-[9px] text-slate-600">0.74</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] font-mono text-slate-500 mb-2">// remediation gate &mdash; approval required</p>
+                <div className="bg-slate-900 rounded-lg border border-yellow-700 p-4 flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-yellow-400 text-xs">&#9888;</span>
+                    <span className="text-xs font-mono text-yellow-400 font-bold">PENDING APPROVAL</span>
+                    <span className="text-[10px] text-slate-500 ml-auto font-mono">Step Functions &rarr; SNS callback</span>
+                  </div>
+                  <div className="bg-slate-800 rounded px-3 py-2 font-mono text-[10px] text-slate-300">
+                    <span className="text-slate-500">action: </span>execute-db-cleanup.sh on rds-prod-01
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button className="flex-1 bg-emerald-700 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                      &#10003;&nbsp; APPROVE
+                    </button>
+                    <button className="flex-1 bg-slate-800 hover:bg-slate-700 text-red-400 border border-red-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                      &#10005;&nbsp; REJECT
+                    </button>
+                  </div>
+                  <p className="text-[9px] text-slate-600 font-mono">Approval triggers Lambda &rarr; ECS Fargate task. All actions logged to CloudWatch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* REPO STRUCTURE */}
       <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <h2 className="text-xl font-bold text-gray-900 mb-4">Repository structure</h2>

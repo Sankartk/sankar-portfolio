@@ -280,9 +280,67 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#070c14] rounded-lg px-3 py-2 font-mono text-xs border border-slate-800">
-                <p className="text-slate-500 mb-1">$ mvn clean verify -q</p>
-                <p className="text-emerald-400">&#x25B6;&nbsp; PASSED &mdash; Tests: 16, Failures: 0, Errors: 0</p>
+              {/* FleetPulse Dashboard mockup */}
+              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                  <span className="text-xs font-mono text-orange-400 font-bold">&#x2B21; FleetPulse</span>
+                  <span className="text-xs font-mono text-slate-500">Operations Dashboard</span>
+                  <span className="text-xs text-slate-600">localhost:8080</span>
+                </div>
+                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+                  {[
+                    { label: "Vehicles", value: "8",     color: "#f97316" },
+                    { label: "Overdue",  value: "1",     color: "#f87171" },
+                    { label: "Alerts",   value: "3",     color: "#c084fc" },
+                    { label: "Tests",    value: "16/16", color: "#4ade80" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="bg-slate-950 p-2.5 text-center">
+                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
+                      <p className="text-base font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-3 gap-0">
+                  <div className="col-span-2 p-3 border-r border-slate-800">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// unresolved alerts</p>
+                    <div className="rounded border border-slate-800 overflow-hidden">
+                      <div className="grid grid-cols-3 bg-slate-900 px-2 py-1">
+                        {["Vehicle","Type","Severity"].map(h => (
+                          <span key={h} className="text-[8px] font-bold text-slate-600 uppercase">{h}</span>
+                        ))}
+                      </div>
+                      {[
+                        ["FP-TRK-003","MAINT_DUE",  "CRITICAL","#f87171"],
+                        ["FP-VAN-007","LIC_EXPIRY", "HIGH",    "#fbbf24"],
+                        ["FP-SUV-002","FUEL_LOW",   "MEDIUM",  "#60a5fa"],
+                      ].map(([v,t,s,c]) => (
+                        <div key={String(v)} className="grid grid-cols-3 px-2 py-1 border-t border-slate-800">
+                          <span className="text-[9px] font-mono text-orange-400 truncate">{v}</span>
+                          <span className="text-[9px] font-mono text-slate-500 truncate">{t}</span>
+                          <span className="text-[9px] font-bold" style={{ color: String(c) }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// fleet status</p>
+                    <div className="flex flex-col gap-1.5">
+                      {[
+                        ["Active",  "#4ade80", 5, 8],
+                        ["In Maint","#fbbf24", 2, 8],
+                        ["Retired", "#f87171", 1, 8],
+                      ].map(([label,color,n,total]) => (
+                        <div key={String(label)} className="flex items-center gap-1.5">
+                          <span className="text-[8px] text-slate-400 w-12 flex-shrink-0">{label}</span>
+                          <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
+                            <div className="h-1.5 rounded" style={{ background: String(color), width: `${(Number(n)/Number(total))*100}%` }}/>
+                          </div>
+                          <span className="text-[8px] font-bold w-3 text-right" style={{ color: String(color) }}>{n}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
                 <a href="/projects/fleetpulse" className="text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">Full write-up &rarr;</a>
@@ -349,9 +407,35 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#070c14] rounded-lg px-3 py-2 font-mono text-xs border border-slate-800">
-                <p className="text-slate-500 mb-1">$ python query.py &quot;prod-db disk full&quot;</p>
-                <p className="text-blue-400">&#x25B6;&nbsp; runbooks/db.md#L42 &mdash; awaiting SNS approval</p>
+              {/* Ops Copilot RAG UI mockup */}
+              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                  <span className="text-xs font-mono text-blue-400 font-bold">&#9900; Ops Copilot</span>
+                  <span className="text-xs font-mono text-slate-500">RAG Interface</span>
+                  <span className="text-xs text-slate-600">localhost:8501</span>
+                </div>
+                <div className="p-3 border-b border-slate-800">
+                  <p className="text-[9px] font-mono text-slate-500 mb-1.5">// incident query</p>
+                  <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded px-3 py-1.5">
+                    <span className="text-[10px] font-mono text-slate-300 flex-1">prod-db disk full &mdash; what do I do?</span>
+                    <span className="text-[9px] bg-blue-700 text-white px-1.5 py-0.5 rounded font-mono flex-shrink-0">ask</span>
+                  </div>
+                </div>
+                <div className="p-3 flex flex-col gap-2">
+                  <p className="text-[9px] font-mono text-slate-500">// answer &mdash; grounded in runbooks</p>
+                  <div className="bg-slate-900 rounded border border-slate-800 p-2.5 flex flex-col gap-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[8px] bg-slate-800 text-blue-300 font-mono px-1.5 py-0.5 rounded flex-shrink-0">runbooks/db.md #L42</span>
+                      <span className="text-[8px] text-slate-500">similarity 0.93</span>
+                    </div>
+                    <p className="text-[10px] text-slate-300 leading-relaxed">Run <code className="text-blue-400 bg-slate-800 px-0.5 rounded text-[9px]">df -h /var/lib/postgresql</code> to confirm. If &gt;90%, execute cleanup as per section 3.2.</p>
+                    <div className="flex items-center gap-2 pt-1.5 border-t border-slate-800">
+                      <span className="text-[8px] font-mono text-slate-500 flex-1">&#x1F512; remediation pending approval</span>
+                      <span className="text-[9px] bg-emerald-700 text-white px-2 py-0.5 rounded font-bold">APPROVE</span>
+                      <span className="text-[9px] bg-red-900 text-red-300 px-2 py-0.5 rounded font-bold">REJECT</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
                 <a href="/projects/ops-copilot" className="text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors">Full write-up &rarr;</a>
@@ -418,9 +502,68 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#070c14] rounded-lg px-3 py-2 font-mono text-xs border border-slate-800">
-                <p className="text-slate-500 mb-1">$ python reconcile.py --month 2026-02</p>
-                <p className="text-emerald-400">&#x25B6;&nbsp; 681 matched, 39 breaks &mdash; report ready in 1.3s</p>
+              {/* Ledger Reconciler Dashboard mockup */}
+              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                  <span className="text-xs font-mono text-emerald-400 font-bold">&#9670; Ledger</span>
+                  <span className="text-xs font-mono text-slate-500">Reconciliation Dashboard</span>
+                  <span className="text-xs text-slate-600">localhost:8501</span>
+                </div>
+                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+                  {[
+                    { label: "Match Rate", value: "94.7%", color: "#34d399" },
+                    { label: "Matched",    value: "681",   color: "#4ade80" },
+                    { label: "Breaks",     value: "39",    color: "#f87171" },
+                    { label: "Period",     value: "30d",   color: "#94a3b8" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="bg-slate-950 p-2.5 text-center">
+                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
+                      <p className="text-base font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-3 gap-0">
+                  <div className="col-span-2 p-3 border-r border-slate-800">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// open breaks</p>
+                    <div className="rounded border border-slate-800 overflow-hidden">
+                      <div className="grid grid-cols-3 bg-slate-900 px-2 py-1">
+                        {["Reference","Category","Amount"].map(h => (
+                          <span key={h} className="text-[8px] font-bold text-slate-600 uppercase">{h}</span>
+                        ))}
+                      </div>
+                      {[
+                        ["PMT-2026-0087","missing_ext",  "$14,250","#f87171"],
+                        ["PMT-2026-0291","timing",       "$3,120", "#60a5fa"],
+                        ["PMT-2026-0204","amt_mismatch", "$6,340", "#fbbf24"],
+                      ].map(([r,c,a,col]) => (
+                        <div key={String(r)} className="grid grid-cols-3 px-2 py-1 border-t border-slate-800">
+                          <span className="text-[9px] font-mono text-emerald-400 truncate">{r}</span>
+                          <span className="text-[9px] font-mono truncate" style={{ color: String(col) }}>{c}</span>
+                          <span className="text-[9px] text-slate-300">{a}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// by category</p>
+                    <div className="flex flex-col gap-1.5">
+                      {[
+                        ["missing_ext",  "#f87171",34],
+                        ["timing",       "#60a5fa",23],
+                        ["duplicate",    "#a78bfa",21],
+                        ["amt_mismatch", "#fbbf24",15],
+                        ["unresolved",   "#94a3b8", 7],
+                      ].map(([label,color,pct]) => (
+                        <div key={String(label)} className="flex items-center gap-1.5">
+                          <span className="text-[8px] font-mono text-slate-500 w-16 flex-shrink-0 truncate">{label}</span>
+                          <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
+                            <div className="h-1.5 rounded" style={{ background: String(color), width: `${pct}%` }}/>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
                 <a href="/projects/ledger-reconciler" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">Full write-up &rarr;</a>
