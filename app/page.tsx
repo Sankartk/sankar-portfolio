@@ -141,10 +141,79 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#070c14] rounded-lg px-3 py-2.5 font-mono text-xs border border-slate-800 flex flex-col gap-1">
-                <p className="text-slate-500">$ cashcast dashboard &mdash; BRK-01 Downtown</p>
-                <p className="text-slate-400">&nbsp; vault <span className="text-emerald-400">$312K</span> &middot; rec <span className="text-cyan-400">$148K</span> &middot; mape <span className="text-emerald-400">9.1%</span> &middot; anomalies <span className="text-slate-300">0</span></p>
-                <p className="text-cyan-500">&nbsp; &#x2581;&#x2582;&#x2583;&#x2585;&#x2586;&#x2588;&#x2587;&#x2587;&#x2585;&#x2584;&#x2583;&#x2582;&#x2582;&#x2583;&nbsp; peak Thu Mar-19 &middot; 14d horizon</p>
+              {/* CashCast Dashboard mockup */}
+              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+                {/* top bar */}
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                  <span className="text-xs font-mono text-cyan-400 font-bold">&#9675; CashCast</span>
+                  <span className="text-xs font-mono text-slate-500">Branch Cash Intelligence</span>
+                  <span className="text-xs text-slate-600">localhost:8001</span>
+                </div>
+                {/* KPI row */}
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-slate-800 border-b border-slate-800">
+                  {[
+                    { label: "Branches",  value: "6",      color: "#22d3ee" },
+                    { label: "Avg MAPE",  value: "9.1%",   color: "#4ade80" },
+                    { label: "Total Rec", value: "$867K",  color: "#22d3ee" },
+                    { label: "Horizon",   value: "14d",    color: "#94a3b8" },
+                    { label: "Anomalies", value: "2",      color: "#fbbf24" },
+                    { label: "High Risk", value: "1",      color: "#f87171" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="bg-slate-950 p-2.5 text-center">
+                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
+                      <p className="text-lg font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                    </div>
+                  ))}
+                </div>
+                {/* forecast chart + branch rec bars */}
+                <div className="grid grid-cols-3 gap-0">
+                  {/* forecast — 2/3 */}
+                  <div className="col-span-2 p-3 border-r border-slate-800">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// 14-day demand forecast &mdash; BRK-01 Downtown</p>
+                    <svg viewBox="0 0 260 66" width="100%">
+                      {[12,28,44,60].map(y => (
+                        <line key={y} x1="26" y1={y} x2="260" y2={y} stroke="#1e293b" strokeWidth="0.7"/>
+                      ))}
+                      {[["$200K",12],["$150K",28],["$100K",44],["$50K",60]].map(([l,y]) => (
+                        <text key={String(y)} x="22" y={Number(y)+3} textAnchor="end" fontSize="5.5" fill="#475569">{l}</text>
+                      ))}
+                      {/* confidence band */}
+                      <polygon points="35,22 55,19 75,26 95,16 115,14 135,20 155,17 175,12 195,10 215,16 235,14 255,18 255,52 235,47 215,50 195,44 175,42 155,48 135,50 115,44 95,46 75,56 55,51 35,54" fill="#22d3ee" opacity="0.08"/>
+                      {/* actual bars past 7 */}
+                      {[[35,22],[55,19],[75,26],[95,16],[115,14],[135,20],[155,17]].map(([x,h],i) => (
+                        <rect key={i} x={Number(x)-6} y={64-Number(h)} width="11" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.45"/>
+                      ))}
+                      {/* forecast bars next 7 */}
+                      {[[175,12],[195,10],[215,16],[235,14],[255,18]].map(([x,h],i) => (
+                        <rect key={i} x={Number(x)-6} y={64-Number(h)} width="11" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.18" stroke="#22d3ee" strokeWidth="0.5"/>
+                      ))}
+                      {/* trend line */}
+                      <polyline points="35,38 55,35 75,42 95,30 115,28 135,34 155,32 175,26 195,24 215,30 235,28 255,32" fill="none" stroke="#22d3ee" strokeWidth="1.2"/>
+                    </svg>
+                  </div>
+                  {/* branch order recs — 1/3 */}
+                  <div className="p-3">
+                    <p className="text-[9px] font-mono text-slate-500 mb-2">// order recs</p>
+                    <div className="flex flex-col gap-1.5">
+                      {[
+                        ["BRK-01","$148K","#4ade80",59],
+                        ["BRK-02","$93K", "#4ade80",37],
+                        ["BRK-03","$112K","#fbbf24",45],
+                        ["BRK-04","$67K", "#4ade80",27],
+                        ["BRK-05","$204K","#f87171",82],
+                        ["BRK-06","$89K", "#4ade80",36],
+                      ].map(([branch,rec,color,pct]) => (
+                        <div key={String(branch)} className="flex items-center gap-1.5">
+                          <span className="text-[8px] font-mono text-cyan-400 w-10 flex-shrink-0">{branch}</span>
+                          <div className="flex-1 h-1 bg-slate-800 rounded overflow-hidden">
+                            <div className="h-1 rounded" style={{ background: String(color), width: `${pct}%` }}/>
+                          </div>
+                          <span className="text-[8px] font-mono w-9 text-right" style={{ color: String(color) }}>{rec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
                 <a href="/projects/cashcast" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">Full write-up &rarr;</a>
