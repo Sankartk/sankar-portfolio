@@ -80,10 +80,10 @@ export default function Home() {
           <a href="https://github.com/Sankartk" className="text-xs text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">github.com/Sankartk</a>
         </div>
 
-        {/* 2x2 GRID — all 4 cards equal width */}
+        {/* 2x2 GRID â€” all 4 cards equal width */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          {/* CARD 01 — CashCast */}
+          {/* CARD 01 â€” CashCast */}
           <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CARD 02 — FleetPulse */}
+          {/* CARD 02 â€” FleetPulse */}
           <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
@@ -221,7 +221,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CARD 03 — Ops Copilot */}
+          {/* CARD 03 â€” Ops Copilot */}
           <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
@@ -290,7 +290,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CARD 04 — Ledger Reconciler */}
+          {/* CARD 04 â€” Ledger Reconciler */}
           <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
@@ -360,255 +360,6 @@ export default function Home() {
           </div>
 
         </div>{/* end 2x2 grid */}
-
-          {/* CARD 01 — CashCast ×2 */}
-          <div className="md:col-span-2 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">cashcast &mdash; branch cash intelligence</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              {/* header row */}
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-cyan-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">01</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Cash Ops &middot; Python + ML</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/cashcast" className="hover:text-cyan-400 transition-colors">CashCast</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","FastAPI","Ridge Regression","Isolation Forest","Plotly.js","Swagger"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              {/* quote */}
-              <div className="border-l-4 border-cyan-500 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Every branch pads its vault order 15&ndash;20% as a buffer. CashCast forecasts that demand with Ridge regression &mdash; the buffer becomes a number, not a guess.&rdquo;
-                </p>
-              </div>
-              {/* 6 bullets in 2-col grid (leverages the wide card) */}
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-1">
-                {[
-                  "Ridge regression on 730 days &mdash; avg MAPE 9.1%",
-                  "Isolation Forest flags demand anomalies before vault gaps",
-                  "14-day forecast with confidence bands + $1K order rec",
-                  "AI narrative: peak day, seasonal delta, idle cash risk",
-                  "Plotly.js ops dashboard: vault status, charts, order table",
-                  "Swagger at <code>/docs</code> &mdash; 5 tagged endpoints",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-cyan-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              {/* metric pills */}
-              <div className="flex gap-2">
-                {[
-                  { label: "Avg MAPE", value: "9.1%", c: "text-emerald-400" },
-                  { label: "Tests", value: "14 / 14", c: "text-cyan-400" },
-                  { label: "Branches", value: "6", c: "text-slate-300" },
-                  { label: "Horizon", value: "14 days", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="flex-1 bg-slate-900 rounded px-2.5 py-2 min-w-0">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-sm font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              {/* run command */}
-              <div className="bg-[#070c14] rounded-lg px-4 py-2.5 font-mono text-xs border border-slate-800">
-                <p className="text-slate-500 mb-1">$ uvicorn app.main:app --reload --port 8001</p>
-                <p className="text-cyan-400">&#x25B6;&nbsp; Dashboard at localhost:8001 &mdash; Plotly charts, drill-down, CSV export</p>
-              </div>
-              {/* footer */}
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/cashcast" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/cashcast" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 02 — FleetPulse ×1 */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">fleetpulse</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-mono font-bold text-white bg-orange-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">02</span>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Fleet Ops &middot; Java</span>
-                </div>
-                <h3 className="text-xl font-extrabold text-white leading-tight">
-                  <a href="/projects/fleetpulse" className="hover:text-orange-400 transition-colors">FleetPulse</a>
-                </h3>
-                <div className="flex flex-wrap gap-1 mt-1.5">
-                  {["Java 21","Spring Boot","PostgreSQL","Flyway"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-orange-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;A truck breaks down. The service was six weeks overdue. The spreadsheet was the last to know.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Hourly scheduler catches overdue maintenance before anyone checks",
-                  "Idempotent alerts &mdash; same event fires once, not on every poll",
-                  "Live ops dashboard: resolve alerts, KPIs update every 60s",
-                  "25+ REST endpoints, 16 tests &mdash; zero failures",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-orange-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="bg-slate-900 rounded px-3 py-2.5 font-mono text-xs">
-                <p className="text-slate-500 mb-1">$ mvn clean verify -q</p>
-                <p className="text-emerald-400">PASSED &mdash; Tests: 16, Failures: 0</p>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/fleetpulse" className="text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/fleetpulse" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 03 — Ops Copilot ×1 */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">ops-copilot-bedrock</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-mono font-bold text-white bg-blue-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">03</span>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Incident Response &middot; AWS</span>
-                </div>
-                <h3 className="text-xl font-extrabold text-white leading-tight">
-                  <a href="/projects/ops-copilot" className="hover:text-blue-400 transition-colors">Ops Copilot</a>
-                </h3>
-                <div className="flex flex-wrap gap-1 mt-1.5">
-                  {["Python","AWS Bedrock","Step Functions","FAISS"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-blue-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;2am. Service is down. The fix is buried somewhere in a 40-page runbook.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "FAISS-indexed runbooks &mdash; answer with exact file and line number",
-                  "LLM stays grounded: only quotes what it found, never invents",
-                  "Step Functions pauses at SNS gate &mdash; nothing runs until approved",
-                  "Swap one line to use Ollama locally or Amazon Bedrock in prod",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-blue-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="bg-slate-900 rounded px-3 py-2.5 font-mono text-xs">
-                <p className="text-slate-500 mb-1">$ python query.py &quot;disk full on prod-db&quot;</p>
-                <p className="text-blue-400">Found: runbooks/db.md#L42 &mdash; awaiting approval</p>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/ops-copilot" className="text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/ops-copilot-bedrock" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 04 — Ledger Reconciler ×2 */}
-          <div className="md:col-span-2 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">ledger-reconciler</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              {/* header row */}
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-emerald-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">04</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Financial Ops &middot; Python</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/ledger-reconciler" className="hover:text-emerald-400 transition-colors">Ledger Reconciler</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","SQLite","pandas","Streamlit"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Every break has a reason. They&apos;re just buried in 80 rows of noise before anyone can dig.&rdquo;
-                </p>
-              </div>
-              {/* 6 bullets in 2-col grid (mirrors CashCast wide layout) */}
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-1 flex-1">
-                {[
-                  "94.7% match rate &mdash; 720 transactions, 30-day run",
-                  "4 ordered passes: exact &rarr; amount+date &rarr; reference &rarr; fuzzy",
-                  "Every break classified with root cause before a human sees it",
-                  "Streamlit dashboard: trend chart, aging heatmap, break drill-down",
-                  "SQLite audit log &mdash; every match decision is traceable",
-                  "Handles timing differences, reformats, and near-duplicate entries",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-emerald-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              {/* metric pills */}
-              <div className="flex gap-2">
-                {[
-                  { label: "Match rate", value: "94.7%", c: "text-emerald-400" },
-                  { label: "Transactions", value: "720", c: "text-slate-300" },
-                  { label: "Run period", value: "30 days", c: "text-slate-300" },
-                  { label: "Break causes", value: "4 types", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="flex-1 bg-slate-900 rounded px-2.5 py-2 min-w-0">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-sm font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/ledger-reconciler" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/ledger-reconciler" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-        </div>{/* end bento grid */}
       </section>
 
       <footer className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400 border-t border-gray-100">
