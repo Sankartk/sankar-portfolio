@@ -2,10 +2,10 @@ import Navbar from "../../../components/Navbar"
 
 export const metadata = {
   title: 'Ops Copilot — Sankar Kalyanakumar',
-  description: 'LLM-powered ops assistant with multi-stage RAG pipeline on AWS Bedrock and Slack integration.',
+  description: 'When your service goes down at 2am, Ops Copilot finds the right section of your runbook immediately — then waits for your approval before touching anything.',
   openGraph: {
     title: 'Ops Copilot',
-    description: 'LLM-powered ops assistant with multi-stage RAG pipeline on AWS Bedrock and Slack integration.',
+    description: 'When your service goes down at 2am, Ops Copilot finds the right section of your runbook immediately — then waits for your approval before touching anything.',
     url: 'https://sankartk.dev/projects/ops-copilot',
     images: [{ url: 'https://sankartk.dev/ops_copilot_thumbnail.png', width: 1200, height: 627 }],
   },
@@ -79,11 +79,11 @@ export default function OpsCopilot() {
               <h4 className="font-bold text-blue-800 text-xs uppercase tracking-wide mb-3">What this solves</h4>
               <ul className="flex flex-col gap-2 text-sm text-blue-900">
                 {[
-                  "10-minute context gap on every page",
-                  "Inconsistent triage across engineers",
-                  "No audit trail for manual rollbacks",
-                  "High cognitive load at incident start",
-                  "Which ECS task def to revert to",
+                  "The 10-minute context gap every on-call engineer loses at the start of an incident",
+                  "Runbooks that exist but are never found under pressure",
+                  "Rollbacks that run before anyone has approved them",
+                  "Different engineers triaging the same alarm differently",
+                  "No paper trail for who approved what at 2am",
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <span className="text-blue-400 mt-0.5 flex-shrink-0">→</span>

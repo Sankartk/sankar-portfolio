@@ -2,10 +2,10 @@ import Navbar from "../../../components/Navbar"
 
 export const metadata = {
   title: 'FleetPulse — Sankar Kalyanakumar',
-  description: 'Fleet operations and predictive maintenance platform built with Java 21, Spring Boot 3.2, Flyway migrations, and a real-time Chart.js dashboard.',
+  description: 'Fleet operations platform that keeps a fleet off the side of the road — built with Java 21, Spring Boot 3.2, Flyway, and a live Chart.js ops dashboard.',
   openGraph: {
     title: 'FleetPulse',
-    description: 'Fleet operations and predictive maintenance platform built with Java 21, Spring Boot 3.2, Flyway migrations, and a real-time Chart.js dashboard.',
+    description: 'Fleet operations platform that keeps a fleet off the side of the road — built with Java 21, Spring Boot 3.2, Flyway, and a live Chart.js ops dashboard.',
     url: 'https://sankartk.dev/projects/fleetpulse',
     images: [{ url: 'https://sankartk.dev/fleetpulse_thumbnail.png', width: 1200, height: 627 }],
   },
@@ -23,10 +23,10 @@ export default function FleetPulse() {
             <div className="flex flex-col gap-2">
               <a href="/" className="text-slate-500 text-xs hover:text-slate-300 transition-colors">&larr; Back</a>
               <h1 className="text-4xl font-extrabold tracking-tight leading-none">FleetPulse</h1>
-              <p className="text-slate-200 text-base font-semibold mt-1">What if your fleet managers could see every breakdown before it happens?</p>
+              <p className="text-slate-200 text-base font-semibold mt-1">One dashboard. Every truck. No more surprises on the road.</p>
               <p className="text-slate-400 text-sm max-w-xl leading-relaxed">
-                A production-grade Java platform that unifies vehicle telemetry, maintenance scheduling, and driver management into a single ops dashboard —
-                with automated overdue detection and alert generation running on a background scheduler.
+                Fleet dispatchers lose time cross-referencing a maintenance spreadsheet, a driver roster, and a route board that don&apos;t talk to each other.
+                FleetPulse puts vehicles, drivers, maintenance records, and alerts in one place — and automatically surfaces anything overdue before someone has to go looking.
               </p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {["Java 21","Spring Boot 3.2","Spring Data JPA","Flyway","H2 / PostgreSQL","Hibernate 6","Thymeleaf","Chart.js","Swagger / OpenAPI","JUnit 5","Mockito","Docker"].map(t => (
@@ -57,31 +57,27 @@ export default function FleetPulse() {
               <p className="text-slate-600 mt-3 italic">truck already out on a 400-mile run.</p>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Fleet ops data lives in three places simultaneously: the maintenance shop&apos;s spreadsheet,
-              the driver manager&apos;s roster, and the dispatcher&apos;s route board. None of them talk to each other.
-              Overdue services get caught when something breaks on the road — not before.
+              The typical fleet runs on three disconnected systems: a maintenance spreadsheet in the shop, a driver roster in HR, and a route board with the dispatcher. None of them update the others.
+              An overdue oil change on truck FP-TRK-003 stays invisible until the truck calls in from the highway.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              I built FleetPulse to solve the coordination problem. One database, one API, one dashboard.
-              Maintenance records, telematics readings, driver assignments, and alerts are all first-class entities
-              with foreign keys and validation — not cells in a spreadsheet with no referential integrity.
+              FleetPulse solves the coordination problem by making everything a first-class data entity. Vehicles, drivers, maintenance records, telematics readings, and alerts all live in one database with proper foreign keys and validation — not separate files with no connection between them.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              The scheduler runs every hour, scans every open maintenance record, flips overdue ones to <code className="bg-gray-100 px-1 rounded text-xs">OVERDUE</code>,
-              and fires idempotent alerts so the dashboard surfaces them immediately — without duplication.
+              A scheduler runs every hour, finds any maintenance task that&apos;s past its due date, marks it <code className="bg-gray-100 px-1 rounded text-xs">OVERDUE</code>, and raises an alert on the dashboard — exactly once, no matter how many times it runs. The operations dashboard refreshes its KPIs automatically; alerts can be resolved with one click.
             </p>
           </div>
 
           <div className="md:col-span-2 flex flex-col gap-4">
             <div className="rounded-xl border border-orange-100 bg-orange-50 p-5">
-              <h4 className="font-bold text-orange-800 text-xs uppercase tracking-wide mb-3">What this solves</h4>
+              <h4 className="font-bold text-orange-800 text-xs uppercase tracking-wide mb-3">What changed</h4>
               <ul className="flex flex-col gap-2 text-sm text-orange-900">
                 {[
-                  "Overdue maintenance discovered on the road",
-                  "No single source of truth for fleet state",
-                  "Manual cross-referencing between systems",
-                  "No audit trail for service history",
-                  "Alert fatigue from repeated notifications",
+                  "Overdue maintenance caught before the truck leaves the yard",
+                  "One source of truth instead of three disconnected files",
+                  "Alerts fire once — no repeated noise for known issues",
+                  "Full service history with cost tracking and audit trail",
+                  "Dashboard KPIs refresh live; resolve alerts without reloading",
                 ].map(item => (
                   <li key={item} className="flex items-start gap-2">
                     <span className="text-orange-400 mt-0.5 flex-shrink-0">→</span>
