@@ -7,7 +7,6 @@ export const metadata = {
     title: 'FleetPulse',
     description: 'Fleet operations platform that keeps a fleet off the side of the road — built with Java 21, Spring Boot 3.2, Flyway, and a live Chart.js ops dashboard.',
     url: 'https://sankartk.dev/projects/fleetpulse',
-    images: [{ url: 'https://sankartk.dev/fleetpulse_thumbnail.png', width: 1200, height: 627 }],
   },
 }
 
