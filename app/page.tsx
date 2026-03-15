@@ -81,10 +81,10 @@ export default function Home() {
         </div>
 
         {/* BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-          {/* CARD 01 - CashCast (featured, 2/3 wide on xl) */}
-          <div className="md:col-span-2 xl:col-span-2 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          {/* CARD 01 - CashCast (featured) */}
+          <div className="md:col-span-2 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800">
               <span className="w-3 h-3 rounded-full bg-red-500 opacity-80"/>
               <span className="w-3 h-3 rounded-full bg-yellow-400 opacity-80"/>
@@ -258,7 +258,7 @@ export default function Home() {
           </div>
 
           {/* CARD 04 - Ledger Reconciler */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="md:col-span-2 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
             <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800">
               <span className="w-3 h-3 rounded-full bg-red-500 opacity-80"/>
               <span className="w-3 h-3 rounded-full bg-yellow-400 opacity-80"/>
