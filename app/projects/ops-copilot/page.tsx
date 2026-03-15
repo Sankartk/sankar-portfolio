@@ -18,7 +18,7 @@ export default function OpsCopilot() {
 
       {/* HEADER */}
       <section className="bg-slate-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 pt-10 pb-9">
+        <div className="max-w-screen-xl mx-auto px-6 pt-10 pb-9">
           <div className="flex items-start justify-between gap-4">
             <div className="flex flex-col gap-2">
               <a href="/" className="text-slate-500 text-xs hover:text-slate-300 transition-colors">&larr; Back</a>
@@ -40,7 +40,7 @@ export default function OpsCopilot() {
       </section>
 
       {/* THE PROBLEM */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="grid md:grid-cols-5 gap-10">
           {/* problem statement */}
           <div className="md:col-span-3 flex flex-col gap-5">
@@ -114,7 +114,7 @@ export default function OpsCopilot() {
       </section>
 
       {/* ARCHITECTURE PART 1: LOCAL RAG */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">01</div>
           <div>
@@ -227,7 +227,7 @@ export default function OpsCopilot() {
       </section>
 
       {/* ARCHITECTURE PART 2: AWS PIPELINE */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">02</div>
           <div>
@@ -348,7 +348,7 @@ curl "https://<api-gw-id>.execute-api.us-east-1.amazonaws.com/prod/approve?token
       </section>
 
       {/* REPO STRUCTURE */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <h2 className="text-xl font-bold text-gray-900 mb-4">Repository structure</h2>
         <pre className="bg-gray-900 text-gray-200 text-xs rounded-xl p-5 overflow-x-auto leading-relaxed">
 {`ops-copilot-bedrock/
@@ -379,7 +379,7 @@ curl "https://<api-gw-id>.execute-api.us-east-1.amazonaws.com/prod/approve?token
       </section>
 
       {/* TECH STACK */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <h2 className="text-xl font-bold text-gray-900 mb-4">Full tech stack</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -417,7 +417,7 @@ curl "https://<api-gw-id>.execute-api.us-east-1.amazonaws.com/prod/approve?token
       </section>
 
       {/* QUICKSTART */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <h2 className="text-xl font-bold text-gray-900 mb-4">Quickstart</h2>
         <pre className="bg-gray-900 text-green-300 text-xs rounded-xl p-5 overflow-x-auto leading-relaxed">
 {`# Clone and install dependencies
@@ -443,7 +443,7 @@ python run_all.py             # builds index + starts Streamlit in one command`}
       </section>
 
       {/* GUARDRAILS / LIMITATIONS / FUTURE */}
-      <section className="max-w-5xl mx-auto px-6 py-10">
+      <section className="max-w-screen-xl mx-auto px-6 py-10">
         <div className="grid md:grid-cols-3 gap-4">
           <div className="bg-slate-950 rounded-xl border border-emerald-900 p-6">
             <div className="flex items-center gap-2 mb-4">
@@ -511,7 +511,7 @@ python run_all.py             # builds index + starts Streamlit in one command`}
         </div>
       </section>
 
-      <footer className="max-w-5xl mx-auto px-6 py-8 border-t border-gray-100 flex gap-6 text-sm">
+      <footer className="max-w-screen-xl mx-auto px-6 py-8 border-t border-gray-100 flex gap-6 text-sm">
         <a href="/" className="text-blue-700 hover:underline">Back to portfolio</a>
         <a href="https://github.com/Sankartk/ops-copilot-bedrock" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">GitHub repo</a>
       </footer>

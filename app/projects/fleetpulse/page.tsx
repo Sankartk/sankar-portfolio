@@ -18,7 +18,7 @@ export default function FleetPulse() {
 
       {/* HEADER */}
       <section className="bg-slate-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 pt-10 pb-9">
+        <div className="max-w-screen-xl mx-auto px-6 pt-10 pb-9">
           <div className="flex items-start justify-between gap-4">
             <div className="flex flex-col gap-2">
               <a href="/" className="text-slate-500 text-xs hover:text-slate-300 transition-colors">&larr; Back</a>
@@ -40,7 +40,7 @@ export default function FleetPulse() {
       </section>
 
       {/* THE PROBLEM */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="grid md:grid-cols-5 gap-10">
           <div className="md:col-span-3 flex flex-col gap-5">
             <div>
@@ -108,7 +108,7 @@ export default function FleetPulse() {
       </section>
 
       {/* ARCHITECTURE */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">01</div>
           <div>
@@ -201,7 +201,7 @@ public int markOverdueRecords() {
       </section>
 
       {/* DASHBOARD SECTION */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">03</div>
           <div>
@@ -326,7 +326,7 @@ public int markOverdueRecords() {
       </section>
 
       {/* API SECTION */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">04</div>
           <div>
@@ -380,7 +380,7 @@ public int markOverdueRecords() {
       </section>
 
       {/* TESTING & BUILD */}
-      <section className="max-w-5xl mx-auto px-6 py-10 border-b border-gray-100">
+      <section className="max-w-screen-xl mx-auto px-6 py-10 border-b border-gray-100">
         <div className="flex items-start gap-4 mb-6">
           <div className="bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded font-mono mt-0.5 flex-shrink-0">05</div>
           <div>
@@ -440,7 +440,7 @@ mvn spring-boot:run`}</pre>
       </section>
 
       {/* FOOTER */}
-      <footer className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400">
+      <footer className="max-w-screen-xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400">
         <span>Newark, DE &middot; karthicks399@gmail.com</span>
         <div className="flex gap-6">
           <a href="https://linkedin.com/in/sankartk11" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>

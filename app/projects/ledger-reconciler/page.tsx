@@ -18,7 +18,7 @@ export default function LedgerReconcilerPage() {
 
       {/* HEADER */}
       <section className="bg-slate-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 pt-12 pb-10">
+        <div className="max-w-screen-xl mx-auto px-6 pt-12 pb-10">
           <p className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-3">
             $ cat projects/ledger-reconciler/README.md
           </p>
@@ -56,7 +56,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* THE PROBLEM */}
       <section className="border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="max-w-screen-xl mx-auto px-6 py-12">
           <div className="grid md:grid-cols-2 gap-10">
             <div>
               <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">The Problem</h2>
@@ -93,7 +93,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* ARCHITECTURE */}
       <section className="border-b border-gray-100 bg-slate-950">
-        <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="max-w-screen-xl mx-auto px-6 py-12">
           <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">Architecture</h2>
 
           {/* Layer 01 — Ingestion */}
@@ -218,7 +218,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* DESIGN DECISIONS */}
       <section className="border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="max-w-screen-xl mx-auto px-6 py-12">
           <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Design Decisions</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
@@ -250,7 +250,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* DASHBOARD OUTPUT */}
       <section className="border-b border-gray-100 bg-slate-950">
-        <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="max-w-screen-xl mx-auto px-6 py-12">
           <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Dashboard Output</h2>
           <p className="text-slate-500 text-sm mb-8">Streamlit monitoring dashboard — real data from the ACC-001 reconciliation run.</p>
 
@@ -501,7 +501,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* TECH STACK */}
       <section className="border-b border-gray-100 bg-slate-950">
-        <div className="max-w-5xl mx-auto px-6 py-10">
+        <div className="max-w-screen-xl mx-auto px-6 py-10">
           <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Tech Stack</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
@@ -526,7 +526,7 @@ unresolved                    2       5,200.00       1d`}</pre>
 
       {/* LINKS */}
       <section className="border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 py-10 flex flex-wrap gap-4">
+        <div className="max-w-screen-xl mx-auto px-6 py-10 flex flex-wrap gap-4">
           <a
             href="https://github.com/Sankartk/ledger-reconciler"
             className="inline-flex items-center gap-2 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-xl hover:bg-slate-800 transition-colors border border-slate-700"
@@ -545,7 +545,7 @@ unresolved                    2       5,200.00       1d`}</pre>
       </section>
 
       {/* FOOTER */}
-      <footer className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400">
+      <footer className="max-w-screen-xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400">
         <span>Newark, DE &middot; karthicks399@gmail.com</span>
         <div className="flex gap-6">
           <a href="https://linkedin.com/in/sankartk11" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>

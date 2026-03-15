@@ -11,12 +11,12 @@ export default function CashCastPage() {
     <main className="bg-slate-950 text-white min-h-screen font-sans">
 
       {/* Back */}
-      <div className="max-w-4xl mx-auto px-6 pt-8">
+      <div className="max-w-screen-xl mx-auto px-6 pt-8">
         <a href="/" className="text-xs font-mono text-slate-500 hover:text-slate-300 transition-colors">← back</a>
       </div>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-6 pt-6 pb-10">
+      <section className="max-w-screen-xl mx-auto px-6 pt-6 pb-10">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs font-mono font-bold text-white bg-cyan-700 rounded-full w-6 h-6 flex items-center justify-center">04</span>
           <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Cash Operations · Python + ML</span>
@@ -35,7 +35,7 @@ export default function CashCastPage() {
       </section>
 
       {/* Problem */}
-      <section className="max-w-4xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
+      <section className="max-w-screen-xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
         <p className="text-xs font-mono text-slate-500 mb-4 uppercase tracking-widest">// the problem</p>
         <div className="border-l-4 border-cyan-500 pl-6 mb-8">
           <p className="text-white text-2xl font-semibold leading-snug">
@@ -71,7 +71,7 @@ export default function CashCastPage() {
       </section>
 
       {/* How it works */}
-      <section className="max-w-4xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
+      <section className="max-w-screen-xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
         <p className="text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">// how it works</p>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-6">
@@ -179,7 +179,7 @@ export default function CashCastPage() {
       </section>
 
       {/* What changed */}
-      <section className="max-w-4xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
+      <section className="max-w-screen-xl mx-auto px-6 pb-10 border-t border-slate-800 pt-10">
         <p className="text-xs font-mono text-slate-500 mb-6 uppercase tracking-widest">// what operators actually see</p>
         <ul className="flex flex-col gap-3">
           {[
@@ -199,7 +199,7 @@ export default function CashCastPage() {
       </section>
 
       {/* Footer links */}
-      <section className="max-w-4xl mx-auto px-6 pb-12 border-t border-slate-800 pt-8">
+      <section className="max-w-screen-xl mx-auto px-6 pb-12 border-t border-slate-800 pt-8">
         <div className="flex gap-6">
           <a href="https://github.com/Sankartk/cashcast" target="_blank" rel="noopener noreferrer"
             className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
