@@ -322,6 +322,124 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJECT 3 — fleetpulse */}
+      <section className="max-w-5xl mx-auto px-6 pt-8 pb-10 border-b border-gray-100">
+        {/* Project card — dark terminal style */}
+        <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden">
+          {/* window bar */}
+          <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800">
+            <span className="w-3 h-3 rounded-full bg-red-500 opacity-80"/>
+            <span className="w-3 h-3 rounded-full bg-yellow-400 opacity-80"/>
+            <span className="w-3 h-3 rounded-full bg-emerald-500 opacity-80"/>
+            <span className="ml-3 text-xs font-mono text-slate-500">fleetpulse</span>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-0">
+            {/* LEFT */}
+            <div className="md:col-span-2 p-7 flex flex-col gap-5 border-r border-slate-800">
+              <div>
+                <h3 className="text-2xl font-extrabold text-white leading-tight">
+                  <a href="/projects/fleetpulse" className="hover:text-orange-400 transition-colors">FleetPulse</a>
+                </h3>
+                <p className="text-slate-500 text-xs mt-1 font-mono">Java 21 · Spring Boot 3.2 · Flyway · PostgreSQL · Chart.js</p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="border-l-2 border-orange-500 pl-3">
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Fleet operations platform with full CRUD for vehicles, drivers, and maintenance records.
+                    A background scheduler auto-detects overdue services and fires idempotent alerts — no duplicate notifications, no missed deadlines.
+                  </p>
+                </div>
+                <div className="border-l-2 border-blue-500 pl-3">
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Dark-mode ops dashboard (Thymeleaf + Chart.js) shows KPI cards, a 6-month maintenance cost trend, fleet status doughnut, and live alert table.
+                    25+ REST endpoints documented via Swagger UI. 16 tests, 0 failures.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 mt-auto pt-2">
+                <a href="/projects/fleetpulse" className="text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">Full write-up →</a>
+                <a href="https://github.com/Sankartk/fleetpulse" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub →</a>
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="md:col-span-3 p-7 flex flex-col gap-6">
+              {/* entity diagram */}
+              <div>
+                <p className="text-xs font-mono text-slate-500 mb-3">// domain model — 5 JPA entities</p>
+                <svg viewBox="0 0 460 120" width="100%" className="rounded-lg border border-slate-800 bg-slate-900">
+                  <defs>
+                    <marker id="arfp" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+                      <path d="M0,0 L6,3 L0,6 L1,3 z" fill="#475569"/>
+                    </marker>
+                  </defs>
+                  {/* Driver */}
+                  <rect x="8" y="38" width="90" height="44" rx="6" fill="#1e293b" stroke="#60a5fa" strokeWidth="1.3"/>
+                  <text x="53" y="55" textAnchor="middle" fontSize="9" fill="#60a5fa" fontWeight="bold">Driver</text>
+                  <text x="53" y="68" textAnchor="middle" fontSize="7" fill="#64748b">employeeId</text>
+                  <text x="53" y="79" textAnchor="middle" fontSize="7" fill="#64748b">licenseExpiry</text>
+                  <line x1="98" y1="60" x2="160" y2="60" stroke="#475569" strokeWidth="1" markerEnd="url(#arfp)"/>
+
+                  {/* Vehicle — center */}
+                  <rect x="162" y="28" width="136" height="64" rx="6" fill="#1e293b" stroke="#f97316" strokeWidth="1.5"/>
+                  <text x="230" y="47" textAnchor="middle" fontSize="10" fill="#f97316" fontWeight="bold">Vehicle</text>
+                  <text x="230" y="61" textAnchor="middle" fontSize="7" fill="#64748b">registrationNumber</text>
+                  <text x="230" y="72" textAnchor="middle" fontSize="7" fill="#64748b">status · fuelType</text>
+                  <text x="230" y="83" textAnchor="middle" fontSize="7" fill="#64748b">currentMileage</text>
+                  <line x1="298" y1="50" x2="360" y2="30" stroke="#475569" strokeWidth="1" markerEnd="url(#arfp)"/>
+                  <line x1="298" y1="60" x2="360" y2="60" stroke="#475569" strokeWidth="1" markerEnd="url(#arfp)"/>
+                  <line x1="298" y1="70" x2="360" y2="90" stroke="#475569" strokeWidth="1" markerEnd="url(#arfp)"/>
+
+                  {/* MaintenanceRecord */}
+                  <rect x="362" y="8" width="90" height="36" rx="6" fill="#1e293b" stroke="#4ade80" strokeWidth="1.3"/>
+                  <text x="407" y="24" textAnchor="middle" fontSize="8" fill="#4ade80" fontWeight="bold">Maintenance</text>
+                  <text x="407" y="37" textAnchor="middle" fontSize="7" fill="#64748b">type · cost · date</text>
+
+                  {/* TelematicsReading */}
+                  <rect x="362" y="40" width="90" height="36" rx="6" fill="#1e293b" stroke="#a78bfa" strokeWidth="1.3"/>
+                  <text x="407" y="55" textAnchor="middle" fontSize="8" fill="#a78bfa" fontWeight="bold">Telematics</text>
+                  <text x="407" y="68" textAnchor="middle" fontSize="7" fill="#64748b">mileage · fuel%</text>
+
+                  {/* Alert */}
+                  <rect x="362" y="76" width="90" height="36" rx="6" fill="#1e293b" stroke="#f87171" strokeWidth="1.3"/>
+                  <text x="407" y="91" textAnchor="middle" fontSize="8" fill="#f87171" fontWeight="bold">Alert</text>
+                  <text x="407" y="104" textAnchor="middle" fontSize="7" fill="#64748b">severity · resolved</text>
+                </svg>
+              </div>
+
+              {/* mini KPI preview */}
+              <div>
+                <p className="text-xs font-mono text-slate-500 mb-2">// operations dashboard KPIs</p>
+                <div className="grid grid-cols-6 gap-px bg-slate-800 rounded-lg overflow-hidden border border-slate-800">
+                  {[
+                    { label: "Vehicles", value: "8",  color: "#f97316" },
+                    { label: "Active",   value: "5",  color: "#4ade80" },
+                    { label: "Maint",    value: "2",  color: "#fbbf24" },
+                    { label: "Overdue",  value: "1",  color: "#f87171" },
+                    { label: "Upcoming", value: "4",  color: "#60a5fa" },
+                    { label: "Alerts",   value: "3",  color: "#c084fc" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="bg-slate-950 p-2 text-center">
+                      <p className="text-[8px] text-slate-600 uppercase tracking-wide">{label}</p>
+                      <p className="text-lg font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* test results */}
+              <div className="bg-slate-900 rounded-lg border border-slate-800 px-4 py-3 font-mono text-xs">
+                <p className="text-slate-500 mb-1">$ mvn clean verify -q</p>
+                <p className="text-emerald-400">✓ BUILD SUCCESS &nbsp;<span className="text-slate-500">Tests run: 16, Failures: 0, Errors: 0</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400">
         <span>Newark, DE &middot; karthicks399@gmail.com</span>
