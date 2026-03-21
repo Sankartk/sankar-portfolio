@@ -2,7 +2,7 @@ export default function Navbar() {
   return (
     <nav className="w-full border-b border-gray-200">
 
-      <div className="max-w-6xl mx-auto flex justify-between py-6 px-6">
+      <div className="max-w-screen-xl mx-auto flex justify-between py-4 px-6">
 
         <div className="font-semibold text-lg">
           Sankar

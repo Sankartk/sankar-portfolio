@@ -128,7 +128,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { label: "Avg MAPE", value: "9.1%", c: "text-emerald-400" },
                   { label: "Tests", value: "14 / 14", c: "text-cyan-400" },
@@ -166,9 +166,9 @@ export default function Home() {
                   ))}
                 </div>
                 {/* forecast chart + branch rec bars */}
-                <div className="grid grid-cols-3 gap-0">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
                   {/* forecast — 2/3 */}
-                  <div className="col-span-2 p-3 border-r border-slate-800">
+                  <div className="sm:col-span-2 p-3 border-b sm:border-b-0 sm:border-r border-slate-800">
                     <p className="text-[9px] font-mono text-slate-500 mb-2">// 14-day demand forecast &mdash; BRK-01 Downtown</p>
                     <svg viewBox="0 0 260 66" width="100%">
                       {[12,28,44,60].map(y => (
@@ -267,7 +267,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { label: "Endpoints", value: "25+", c: "text-orange-400" },
                   { label: "Tests", value: "16 / 16", c: "text-emerald-400" },
@@ -287,7 +287,7 @@ export default function Home() {
                   <span className="text-xs font-mono text-slate-500">Operations Dashboard</span>
                   <span className="text-xs text-slate-600">localhost:8080</span>
                 </div>
-                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
                   {[
                     { label: "Vehicles", value: "8",     color: "#f97316" },
                     { label: "Overdue",  value: "1",     color: "#f87171" },
@@ -300,8 +300,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-3 gap-0">
-                  <div className="col-span-2 p-3 border-r border-slate-800">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+                  <div className="sm:col-span-2 p-3 border-b sm:border-b-0 sm:border-r border-slate-800">
                     <p className="text-[9px] font-mono text-slate-500 mb-2">// unresolved alerts</p>
                     <div className="rounded border border-slate-800 overflow-hidden">
                       <div className="grid grid-cols-3 bg-slate-900 px-2 py-1">
@@ -394,7 +394,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { label: "Vector DB", value: "FAISS", c: "text-blue-400" },
                   { label: "LLM", value: "Bedrock", c: "text-slate-300" },
@@ -489,7 +489,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { label: "Match rate", value: "94.7%", c: "text-emerald-400" },
                   { label: "Txns", value: "720", c: "text-slate-300" },
@@ -509,7 +509,7 @@ export default function Home() {
                   <span className="text-xs font-mono text-slate-500">Reconciliation Dashboard</span>
                   <span className="text-xs text-slate-600">localhost:8501</span>
                 </div>
-                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
                   {[
                     { label: "Match Rate", value: "94.7%", color: "#34d399" },
                     { label: "Matched",    value: "681",   color: "#4ade80" },
@@ -522,8 +522,8 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-3 gap-0">
-                  <div className="col-span-2 p-3 border-r border-slate-800">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
+                  <div className="sm:col-span-2 p-3 border-b sm:border-b-0 sm:border-r border-slate-800">
                     <p className="text-[9px] font-mono text-slate-500 mb-2">// open breaks</p>
                     <div className="rounded border border-slate-800 overflow-hidden">
                       <div className="grid grid-cols-3 bg-slate-900 px-2 py-1">
