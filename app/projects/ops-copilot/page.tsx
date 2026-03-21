@@ -19,10 +19,10 @@ export default function OpsCopilot() {
       {/* HEADER */}
       <section className="bg-slate-950 text-white">
         <div className="max-w-screen-xl mx-auto px-6 pt-10 pb-9">
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div className="flex flex-col gap-2">
               <a href="/" className="text-slate-500 text-xs hover:text-slate-300 transition-colors">&larr; Back</a>
-              <h1 className="text-4xl font-extrabold tracking-tight leading-none">Ops Copilot</h1>
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-none">Ops Copilot</h1>
               <p className="text-slate-200 text-base font-semibold mt-1">What if your runbooks could answer the phone at 2am?</p>
               <p className="text-slate-400 text-sm max-w-xl leading-relaxed">
                 RAG over Markdown runbooks + an approval-gated AWS remediation pipeline.
@@ -34,7 +34,7 @@ export default function OpsCopilot() {
                 ))}
               </div>
             </div>
-            <a href="https://github.com/Sankartk/ops-copilot-bedrock" className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg text-sm flex-shrink-0 transition-colors mt-6" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+            <a href="https://github.com/Sankartk/ops-copilot-bedrock" className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 py-2 rounded-lg text-sm sm:flex-shrink-0 transition-colors sm:mt-6" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
           </div>
         </div>
       </section>

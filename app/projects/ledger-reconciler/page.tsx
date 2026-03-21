@@ -23,7 +23,7 @@ export default function LedgerReconcilerPage() {
             $ cat projects/ledger-reconciler/README.md
           </p>
           <a href="/" className="text-slate-500 text-xs hover:text-slate-300 transition-colors mb-3 inline-block">&larr; Back</a>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
             Ledger Reconciler
           </h1>
           <p className="text-slate-200 text-lg font-semibold max-w-3xl leading-snug">

@@ -8,11 +8,11 @@ export default function Home() {
       {/* HERO */}
       <section className="bg-slate-950 text-white">
         <div className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
-          <div className="flex items-start gap-5">
-            <img src="/profile.jpg" className="w-14 h-14 rounded-full border-2 border-slate-700 object-cover flex-shrink-0 mt-1" alt="Sankar" />
+          <div className="flex items-start gap-4">
+            <img src="/profile.jpg" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-slate-700 object-cover flex-shrink-0 mt-1" alt="Sankar" />
             <div className="flex flex-col gap-2 flex-1">
               <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Software &amp; Data Engineer</p>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-none">Sankar Kalyanakumar</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none">Sankar Kalyanakumar</h1>
               <p className="text-slate-200 text-lg font-semibold leading-snug max-w-2xl mt-1">
                 I build systems where bad data can&apos;t hide.
               </p>
@@ -72,12 +72,12 @@ export default function Home() {
 
       {/* PROJECTS */}
       <section className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
-        <div className="flex items-baseline justify-between mb-8">
+        <div className="flex items-baseline justify-between mb-8 gap-4">
           <div>
             <p className="text-xs font-mono text-gray-400 mb-1">$ ls ~/projects</p>
             <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">Open source work</h2>
           </div>
-          <a href="https://github.com/Sankartk" className="text-xs text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">github.com/Sankartk</a>
+          <a href="https://github.com/Sankartk" className="text-xs text-blue-600 hover:underline flex-shrink-0" target="_blank" rel="noopener noreferrer">github.com/Sankartk</a>
         </div>
 
         {/* 2x2 GRID â€” all 4 cards equal width */}
@@ -146,8 +146,8 @@ export default function Home() {
                 {/* top bar */}
                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
                   <span className="text-xs font-mono text-cyan-400 font-bold">&#9675; CashCast</span>
-                  <span className="text-xs font-mono text-slate-500">Branch Cash Intelligence</span>
-                  <span className="text-xs text-slate-600">localhost:8001</span>
+                  <span className="hidden sm:block text-xs font-mono text-slate-500">Branch Cash Intelligence</span>
+                  <span className="text-xs text-slate-600">:8001</span>
                 </div>
                 {/* KPI row */}
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-slate-800 border-b border-slate-800">
@@ -161,7 +161,7 @@ export default function Home() {
                   ].map(({ label, value, color }) => (
                     <div key={label} className="bg-slate-950 p-2.5 text-center">
                       <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
-                      <p className="text-lg font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                      <p className="text-sm sm:text-lg font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
                     </div>
                   ))}
                 </div>
@@ -284,8 +284,8 @@ export default function Home() {
               <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
                   <span className="text-xs font-mono text-orange-400 font-bold">&#x2B21; FleetPulse</span>
-                  <span className="text-xs font-mono text-slate-500">Operations Dashboard</span>
-                  <span className="text-xs text-slate-600">localhost:8080</span>
+                  <span className="hidden sm:block text-xs font-mono text-slate-500">Operations Dashboard</span>
+                  <span className="text-xs text-slate-600">:8080</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
                   {[
@@ -411,8 +411,8 @@ export default function Home() {
               <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
                   <span className="text-xs font-mono text-blue-400 font-bold">&#9900; Ops Copilot</span>
-                  <span className="text-xs font-mono text-slate-500">RAG Interface</span>
-                  <span className="text-xs text-slate-600">localhost:8501</span>
+                  <span className="hidden sm:block text-xs font-mono text-slate-500">RAG Interface</span>
+                  <span className="text-xs text-slate-600">:8501</span>
                 </div>
                 <div className="p-3 border-b border-slate-800">
                   <p className="text-[9px] font-mono text-slate-500 mb-1.5">// incident query</p>
@@ -506,8 +506,8 @@ export default function Home() {
               <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
                   <span className="text-xs font-mono text-emerald-400 font-bold">&#9670; Ledger</span>
-                  <span className="text-xs font-mono text-slate-500">Reconciliation Dashboard</span>
-                  <span className="text-xs text-slate-600">localhost:8501</span>
+                  <span className="hidden sm:block text-xs font-mono text-slate-500">Reconciliation Dashboard</span>
+                  <span className="text-xs text-slate-600">:8501</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
                   {[
@@ -575,7 +575,7 @@ export default function Home() {
         </div>{/* end 2x2 grid */}
       </section>
 
-      <footer className="max-w-screen-2xl mx-auto px-6 py-8 flex items-center justify-between text-sm text-gray-400 border-t border-gray-100">
+      <footer className="max-w-screen-2xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-gray-400 border-t border-gray-100">
         <span>Newark, DE &middot; karthicks399@gmail.com</span>
         <div className="flex gap-6">
           <a href="https://linkedin.com/in/sankartk11" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
