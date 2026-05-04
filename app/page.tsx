@@ -572,6 +572,130 @@ export default function Home() {
             </div>
           </div>
 
+          {/* CARD 05 — FinFlow */}
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col md:col-span-2">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
+              <span className="ml-3 text-xs font-mono text-slate-500">finflow &mdash; ai-native reconciliation engine</span>
+            </div>
+            <div className="p-5 flex flex-col gap-4 flex-1">
+              <div className="flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-mono font-bold text-white bg-violet-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">05</span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Financial Ops &middot; Python</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white leading-tight">
+                    <a href="/projects/finflow" className="hover:text-violet-400 transition-colors">FinFlow</a>
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {["Python","Kafka","PostgreSQL","pgvector","Ollama","FastAPI","GraphQL","Streamlit"].map(t => (
+                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="border-l-4 border-violet-600 pl-4">
+                <p className="text-white text-sm font-semibold leading-snug">
+                  &ldquo;Every reconciliation break has a reason. FinFlow finds it automatically &mdash; exact match, timing gap, fuzzy reference, amount delta, or AI resolution.&rdquo;
+                </p>
+              </div>
+              <ul className="flex flex-col gap-1.5 flex-1">
+                {[
+                  "Kafka ingestion with checkpoint-based replay &mdash; no message lost on restart",
+                  "Five-pass engine: exact &rarr; timing &rarr; fuzzy reference &rarr; amount threshold &rarr; Ollama AI",
+                  "pgvector cosine search finds similar historical anomalies &mdash; memory across runs",
+                  "Ollama llama3.2 explains residual breaks in natural language, zero API costs",
+                  "FastAPI + Strawberry GraphQL over reconciliation data &mdash; typed queries, playground UI",
+                  "Streamlit dashboard: match rate trend, anomaly cards, one-click resolve",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
+                    <span className="text-violet-500 mt-0.5 flex-shrink-0">&rarr;</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
+              </ul>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { label: "Match Rate", value: "94%+", c: "text-violet-400" },
+                  { label: "Passes", value: "5", c: "text-cyan-400" },
+                  { label: "LLM", value: "Ollama", c: "text-slate-300" },
+                  { label: "Stack", value: "Python", c: "text-slate-300" },
+                ].map(({ label, value, c }) => (
+                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
+                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
+                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
+                  </div>
+                ))}
+              </div>
+              {/* FinFlow Dashboard mockup */}
+              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
+                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
+                  <span className="text-xs font-mono text-violet-400 font-bold">&#9670; FinFlow</span>
+                  <span className="hidden sm:block text-xs font-mono text-slate-500">Reconciliation Engine</span>
+                  <span className="text-xs text-slate-600">:8501</span>
+                </div>
+                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+                  {[
+                    { label: "Match Rate", value: "94.2%", color: "#a78bfa" },
+                    { label: "Matched",    value: "1,884", color: "#4ade80" },
+                    { label: "Breaks",     value: "116",   color: "#f87171" },
+                    { label: "Anomalies", value: "3",     color: "#fbbf24" },
+                  ].map(({ label, value, color }) => (
+                    <div key={label} className="bg-slate-950 p-2.5 text-center">
+                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
+                      <p className="text-sm font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
+                    </div>
+                  ))}
+                </div>
+                {/* five-pass breakdown */}
+                <div className="p-3 border-b border-slate-800">
+                  <p className="text-[9px] font-mono text-slate-500 mb-2">// match pass breakdown</p>
+                  <div className="flex flex-col gap-1.5">
+                    {[
+                      ["Exact Match",       "1,243", "#a78bfa", 66],
+                      ["Timing Tolerance",  "389",   "#818cf8", 57],
+                      ["Fuzzy Reference",   "168",   "#6366f1", 42],
+                      ["Amount Threshold",  "71",    "#4f46e5", 22],
+                      ["AI Resolution",     "13",    "#7c3aed",  8],
+                    ].map(([pass, count, color, pct]) => (
+                      <div key={String(pass)} className="flex items-center gap-1.5">
+                        <span className="text-[8px] font-mono text-slate-400 w-24 flex-shrink-0">{pass}</span>
+                        <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
+                          <div className="h-1.5 rounded" style={{ background: String(color), width: `${Number(pct)}%` }}/>
+                        </div>
+                        <span className="text-[8px] font-mono w-10 text-right" style={{ color: String(color) }}>{count}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* anomaly panel */}
+                <div className="p-3">
+                  <p className="text-[9px] font-mono text-slate-500 mb-2">// open anomalies</p>
+                  <div className="flex flex-col gap-1">
+                    {[
+                      ["volume_spike",          "ENTITY_A", "Unmatched 2.3\u00d7 7-day rolling avg", "#fbbf24"],
+                      ["entity_concentration",  "ENTITY_B", "38% of breaks from one entity",        "#f97316"],
+                    ].map(([type, entity, msg, color]) => (
+                      <div key={String(type)} className="flex items-center gap-2 bg-slate-900 rounded px-2 py-1">
+                        <span className="text-[8px] font-mono px-1.5 py-0.5 rounded flex-shrink-0" style={{ background: `${String(color)}22`, color: String(color) }}>{type}</span>
+                        <span className="text-[8px] font-mono text-cyan-400 flex-shrink-0">{entity}</span>
+                        <span className="text-[8px] text-slate-400 flex-1 truncate">{msg}</span>
+                        <span className="text-[8px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono flex-shrink-0">resolve</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
+                <a href="/projects/finflow" className="text-sm font-bold text-violet-400 hover:text-violet-300 transition-colors">Full write-up &rarr;</a>
+                <a href="https://github.com/Sankartk/finflow" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+              </div>
+            </div>
+          </div>
+
         </div>{/* end 2x2 grid */}
       </section>
 
