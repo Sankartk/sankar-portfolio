@@ -2,35 +2,80 @@ import Navbar from "../components/Navbar"
 
 export default function Home() {
   return (
-    <main className="bg-white text-gray-900 min-h-screen font-sans">
+    <main className="bg-slate-950 text-gray-900 min-h-screen font-sans">
       <Navbar />
 
       {/* HERO */}
       <section className="bg-slate-950 text-white">
-        <div className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
-          <div className="flex items-start gap-4">
-            <img src="/profile.jpg" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-slate-700 object-cover flex-shrink-0 mt-1" alt="Sankar" />
-            <div className="flex flex-col gap-2 flex-1">
-              <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Software &amp; Data Engineer</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none">Sankar Kalyanakumar</h1>
-              <p className="text-slate-200 text-lg font-semibold leading-snug max-w-2xl mt-1">
+        {/* availability banner */}
+        <div className="border-b border-slate-800 bg-slate-900">
+          <div className="max-w-screen-2xl mx-auto px-6 py-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"/>
+            <span className="text-xs font-mono text-emerald-400">open to senior / staff engineering roles</span>
+            <span className="text-slate-700 mx-1">·</span>
+            <span className="text-xs text-slate-500 font-mono">Newark, DE · remote / hybrid</span>
+          </div>
+        </div>
+
+        <div className="max-w-screen-2xl mx-auto px-6 pt-14 pb-12">
+          <div className="flex flex-col sm:flex-row items-start gap-8">
+
+            {/* photo */}
+            <div className="flex-shrink-0">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-2xl bg-violet-700 opacity-20 blur-xl scale-110"/>
+                <img
+                  src="/profile.jpg"
+                  className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border border-slate-700 object-cover"
+                  alt="Sankar"
+                />
+              </div>
+            </div>
+
+            {/* text */}
+            <div className="flex flex-col gap-3 flex-1">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] font-mono font-bold text-violet-400 bg-violet-950 border border-violet-800 px-2 py-0.5 rounded uppercase tracking-widest">Senior Software &amp; Data Engineer</span>
+                <span className="text-slate-600 text-xs font-mono">· 6 years</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none">
+                Sankar<br className="sm:hidden"/> Kalyanakumar
+              </h1>
+              <p className="text-slate-200 text-xl sm:text-2xl font-semibold leading-snug max-w-2xl mt-1">
                 I build systems where bad data can&apos;t hide.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
-                6 years designing pipelines that validate before they propagate, fail loud instead of silent,
-                and let humans approve before anything irreversible runs.
+                Pipelines that validate before they propagate. Services that fail loud instead of silent.
+                Automation that pauses before anything irreversible runs.
               </p>
-              <div className="flex flex-wrap gap-1.5 mt-1">
-                {["Python","SQL","AWS","Redshift","Glue","DynamoDB","Spring Boot","Terraform","Azure Synapse","Tableau"].map(t => (
-                  <span key={t} className="bg-slate-800 text-slate-300 px-2 py-0.5 rounded text-xs font-mono">{t}</span>
-                ))}
-              </div>
-              <div className="flex gap-5 mt-1 text-sm">
-                <a href="mailto:karthicks399@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors">karthicks399@gmail.com</a>
-                <a href="https://linkedin.com/in/sankartk11" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/Sankartk" className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+              <div className="flex gap-4 mt-1 text-sm flex-wrap">
+                <a href="mailto:karthicks399@gmail.com" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group">
+                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> karthicks399@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/sankartk11" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group" target="_blank" rel="noopener noreferrer">
+                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> LinkedIn
+                </a>
+                <a href="https://github.com/Sankartk" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group" target="_blank" rel="noopener noreferrer">
+                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> GitHub
+                </a>
               </div>
             </div>
+          </div>
+
+          {/* stat strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 rounded-xl overflow-hidden mt-10 border border-slate-800">
+            {[
+              { label: "Years of experience", value: "6+", color: "text-violet-400" },
+              { label: "Production-grade projects", value: "4", color: "text-cyan-400" },
+              { label: "Core domains", value: "Data · Backend · Cloud · AI", color: "text-emerald-400" },
+              { label: "Stack depth", value: "Python · Java · AWS · Kafka", color: "text-slate-300" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="bg-slate-950 px-5 py-4">
+                <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1">{label}</p>
+                <p className={`text-sm font-extrabold leading-tight ${color}`}>{value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -70,14 +115,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* EXPERTISE BY DOMAIN */}
+      <section className="bg-slate-950 border-t border-slate-800">
+        <div className="max-w-screen-2xl mx-auto px-6 py-10">
+          <p className="text-slate-600 text-xs font-mono mb-6 uppercase tracking-widest">// where I operate</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              {
+                domain: "Data Engineering",
+                icon: "▶",
+                accent: "border-violet-700 text-violet-400",
+                skills: ["AWS Glue · Redshift · S3","Kafka · DynamoDB · PostgreSQL","pgvector · Airflow","ETL/ELT · CDC patterns"],
+              },
+              {
+                domain: "Backend Systems",
+                icon: "⬡",
+                accent: "border-orange-700 text-orange-400",
+                skills: ["Java 21 · Spring Boot","FastAPI · GraphQL","REST · event-driven","Docker · Flyway · JPA"],
+              },
+              {
+                domain: "Cloud & Infrastructure",
+                icon: "◆",
+                accent: "border-cyan-700 text-cyan-400",
+                skills: ["AWS · Azure Synapse","Step Functions · SNS · SQS","Terraform · IaC","Bedrock · Lambda"],
+              },
+              {
+                domain: "AI / ML Engineering",
+                icon: "◎",
+                accent: "border-emerald-700 text-emerald-400",
+                skills: ["RAG pipelines · FAISS","Ollama · AWS Bedrock","Ridge Regression · Isolation Forest","pgvector · LLM grounding"],
+              },
+            ].map(({ domain, icon, accent, skills }) => {
+              const [border, text] = accent.split(" ");
+              return (
+                <div key={domain} className={`rounded-xl border ${border} bg-slate-900 p-4 flex flex-col gap-3`}>
+                  <div className="flex items-center gap-2">
+                    <span className={`text-xs font-mono font-bold ${text}`}>{icon}</span>
+                    <h3 className="text-xs font-bold text-white uppercase tracking-widest">{domain}</h3>
+                  </div>
+                  <ul className="flex flex-col gap-1">
+                    {skills.map(s => (
+                      <li key={s} className={`text-[11px] font-mono ${text} opacity-80`}>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* PROJECTS */}
-      <section className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
+      <section id="projects" className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
         <div className="flex items-baseline justify-between mb-8 gap-4">
           <div>
-            <p className="text-xs font-mono text-gray-400 mb-1">$ ls ~/projects</p>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400">Open source work</h2>
+            <p className="text-xs font-mono text-slate-500 mb-1">$ ls ~/projects</p>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400">Open source work</h2>
           </div>
-          <a href="https://github.com/Sankartk" className="text-xs text-blue-600 hover:underline flex-shrink-0" target="_blank" rel="noopener noreferrer">github.com/Sankartk</a>
+          <a href="https://github.com/Sankartk" className="text-xs text-violet-400 hover:text-violet-300 transition-colors flex-shrink-0 font-mono" target="_blank" rel="noopener noreferrer">github.com/Sankartk ↗</a>
         </div>
 
         {/* PROJECTS GRID */}
@@ -569,11 +664,41 @@ export default function Home() {
           </div>{/* end 2x2 grid */}
       </section>
 
-      <footer className="max-w-screen-2xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-gray-400 border-t border-gray-100">
-        <span>Newark, DE &middot; karthicks399@gmail.com</span>
-        <div className="flex gap-6">
-          <a href="https://linkedin.com/in/sankartk11" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/Sankartk" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a>
+      {/* CONTACT CTA */}
+      <section className="bg-slate-950 border-t border-slate-800">
+        <div className="max-w-screen-2xl mx-auto px-6 py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"/>
+              <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">available for new roles</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight max-w-lg">
+              Looking for a senior engineer who ships production-grade systems?
+            </h2>
+            <p className="text-slate-400 text-sm max-w-md leading-relaxed">
+              I work best on data-heavy problems — pipelines, ML systems, cloud infrastructure, backend APIs.
+              Reach out and let&apos;s see if there&apos;s a fit.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 flex-shrink-0">
+            <a
+              href="mailto:karthicks399@gmail.com"
+              className="bg-violet-700 hover:bg-violet-600 text-white font-bold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+            >
+              karthicks399@gmail.com →
+            </a>
+            <div className="flex gap-4 justify-center">
+              <a href="https://linkedin.com/in/sankartk11" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-white transition-colors">LinkedIn ↗</a>
+              <a href="https://github.com/Sankartk" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-white transition-colors">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-slate-950 border-t border-slate-800">
+        <div className="max-w-screen-2xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-600 font-mono">
+          <span>sankartk.dev · Newark, DE</span>
+          <span>built with Next.js · TypeScript · Tailwind</span>
         </div>
       </footer>
     </main>
