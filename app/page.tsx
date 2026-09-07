@@ -789,6 +789,70 @@ export default function Home() {
             </div>
           </div>
 
+          {/* CARD 07 — regwatch */}
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
+              <span className="ml-3 text-xs font-mono text-slate-500">regwatch &mdash; ai compliance pipeline</span>
+            </div>
+            <div className="p-5 flex flex-col gap-4 flex-1">
+              <div className="flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-mono font-bold text-white bg-amber-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">07</span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">RegTech &middot; Python + LLM</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white leading-tight">
+                    <a href="https://github.com/Sankartk/regwatch" className="hover:text-amber-400 transition-colors" target="_blank" rel="noopener noreferrer">regwatch</a>
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {["Python","Ollama","SEC EDGAR","SQLite","Streamlit","httpx"].map(t => (
+                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="border-l-4 border-amber-600 pl-4">
+                <p className="text-white text-sm font-semibold leading-snug">
+                  &ldquo;Every AI trade decision needs a compliance gate. This one checks it, blocks it, and writes an immutable record of why.&rdquo;
+                </p>
+              </div>
+              <ul className="flex flex-col gap-1.5 flex-1">
+                {[
+                  "5 rule types: position limit, restricted list, concentration (HHI), wash trade, AI governance",
+                  "EU AI Act Art. 14: blocks LLM trades without human approval or explainable rationale",
+                  "LLM extracts rules from live SEC filings via Ollama &mdash; zero API cost",
+                  "Chain of Responsibility: HARD rules short-circuit, Observer fires violation handlers",
+                  "Immutable audit trail in SQLite &mdash; every check indexed by decision_id",
+                  "Streamlit dashboard: checks by day, violations by rule, full audit browser",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
+                    <span className="text-amber-500 mt-0.5 flex-shrink-0">&rarr;</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
+              </ul>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { label: "Rules", value: "5", c: "text-amber-400" },
+                  { label: "EU AI Act", value: "Art.14", c: "text-slate-300" },
+                  { label: "LLM", value: "Ollama", c: "text-cyan-400" },
+                  { label: "Audit", value: "SQLite", c: "text-slate-300" },
+                ].map(({ label, value, c }) => (
+                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
+                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
+                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
+                <a href="https://github.com/Sankartk/regwatch" className="text-sm font-bold text-amber-400 hover:text-amber-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+              </div>
+            </div>
+          </div>
+
           </div>{/* end 2x2 grid */}
       </section>
 
