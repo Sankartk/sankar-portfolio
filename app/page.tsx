@@ -67,9 +67,9 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 rounded-xl overflow-hidden mt-10 border border-slate-800">
             {[
               { label: "Years of experience", value: "6+", color: "text-violet-400" },
-              { label: "Production-grade projects", value: "4", color: "text-cyan-400" },
-              { label: "Core domains", value: "Data · Backend · Cloud · AI", color: "text-emerald-400" },
-              { label: "Stack depth", value: "Python · Java · AWS · Kafka", color: "text-slate-300" },
+              { label: "Production-grade projects", value: "7", color: "text-cyan-400" },
+              { label: "Core domains", value: "Data · Backend · Cloud · AI · Quant", color: "text-emerald-400" },
+              { label: "Stack depth", value: "Python · Java · C++ · AWS · Kafka", color: "text-slate-300" },
             ].map(({ label, value, color }) => (
               <div key={label} className="bg-slate-950 px-5 py-4">
                 <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1">{label}</p>
@@ -140,10 +140,10 @@ export default function Home() {
                 skills: ["AWS · Azure Synapse","Step Functions · SNS · SQS","Terraform · IaC","Bedrock · Lambda"],
               },
               {
-                domain: "AI / ML Engineering",
+                domain: "Quant & Systems",
                 icon: "◎",
-                accent: "border-emerald-700 text-emerald-400",
-                skills: ["RAG pipelines · FAISS","Ollama · AWS Bedrock","Ridge Regression · Isolation Forest","pgvector · LLM grounding"],
+                accent: "border-rose-700 text-rose-400",
+                skills: ["C++20 · lock-free structures","ITCH 5.0 · order book engines","Backtesting · walk-forward","RAG · LLM grounding · Ollama"],
               },
             ].map(({ domain, icon, accent, skills }) => {
               const [border, text] = accent.split(" ");
