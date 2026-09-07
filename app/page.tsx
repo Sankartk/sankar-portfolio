@@ -661,6 +661,70 @@ export default function Home() {
             </div>
           </div>
 
+          {/* CARD 05 — market-microstructure */}
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
+              <span className="ml-3 text-xs font-mono text-slate-500">market-microstructure &mdash; c++ order book</span>
+            </div>
+            <div className="p-5 flex flex-col gap-4 flex-1">
+              <div className="flex items-start justify-between gap-3 flex-wrap">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-mono font-bold text-white bg-rose-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">05</span>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">HFT &middot; C++20</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white leading-tight">
+                    <a href="https://github.com/Sankartk/market-microstructure" className="hover:text-rose-400 transition-colors" target="_blank" rel="noopener noreferrer">market-microstructure</a>
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {["C++20","CMake","ITCH 5.0","Lock-free","Nanosec"].map(t => (
+                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="border-l-4 border-rose-600 pl-4">
+                <p className="text-white text-sm font-semibold leading-snug">
+                  &ldquo;An order book that allocates nothing in the hot path. Spoofing detection in the same process, same microsecond.&rdquo;
+                </p>
+              </div>
+              <ul className="flex flex-col gap-1.5 flex-1">
+                {[
+                  "Pool allocator &mdash; zero malloc/free after warmup, cache-line aligned orders",
+                  "ITCH 5.0 binary parser &mdash; no heap allocation per message",
+                  "Lock-free per-symbol books &mdash; intrusive linked list within price levels",
+                  "4 abuse detectors: spoofing, layering, momentum ignition, quote stuffing",
+                  "Sliding-window pattern engine &mdash; 60s rolling state per symbol",
+                  "Benchmarks: ~45ns add_order, ~38ns cancel, 83M snapshots/sec",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
+                    <span className="text-rose-500 mt-0.5 flex-shrink-0">&rarr;</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
+              </ul>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { label: "add_order", value: "45ns", c: "text-rose-400" },
+                  { label: "cancel", value: "38ns", c: "text-slate-300" },
+                  { label: "snapshots/s", value: "83M", c: "text-cyan-400" },
+                  { label: "Detectors", value: "4", c: "text-slate-300" },
+                ].map(({ label, value, c }) => (
+                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
+                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
+                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
+                <a href="https://github.com/Sankartk/market-microstructure" className="text-sm font-bold text-rose-400 hover:text-rose-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+              </div>
+            </div>
+          </div>
+
           </div>{/* end 2x2 grid */}
       </section>
 
