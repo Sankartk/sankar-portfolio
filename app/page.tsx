@@ -45,8 +45,9 @@ export default function Home() {
                 I build systems where bad data can&apos;t hide.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
-                Pipelines that validate before they propagate. Services that fail loud instead of silent.
-                Automation that pauses before anything irreversible runs.
+                Six years of data pipelines and backend systems in finance. Lately I&apos;ve been going deeper —
+                a C++ order book that parses NASDAQ&apos;s real feed format, a backtester that doesn&apos;t lie to you,
+                and a compliance gate for AI-generated trades. Everything below is open source and runs.
               </p>
 
               <div className="flex gap-4 mt-1 text-sm flex-wrap">
@@ -83,25 +84,25 @@ export default function Home() {
       {/* PRINCIPLES STRIP */}
       <section className="bg-slate-900 border-t border-slate-800">
         <div className="max-w-screen-2xl mx-auto px-6 py-7">
-          <p className="text-slate-600 text-xs font-mono mb-5 uppercase tracking-widest">// how I think about engineering</p>
+          <p className="text-slate-600 text-xs font-mono mb-5 uppercase tracking-widest">// three rules I keep coming back to</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
                 icon: "[x]",
                 title: "Validate at the boundary",
-                body: "Bad data shouldn't travel far. Catch it at ingestion, log exactly what failed and why, and stop the pipeline before the corruption spreads downstream.",
+                body: "I learned this one the hard way: once bad data gets three steps downstream, nobody trusts anything the pipeline produces. So I check at the door — log what failed, say why, and stop the line.",
                 accent: "text-emerald-400",
               },
               {
                 icon: "||",
                 title: "Pause before irreversible",
-                body: "Automation is most dangerous right before it does something permanent. Build the gate first &mdash; approval, confirmation, timeout &mdash; then build the action.",
+                body: "Automation is most dangerous right before it does something permanent. Every automated action I build gets a gate first — approval, confirmation, timeout — and only then the action.",
                 accent: "text-blue-400",
               },
               {
                 icon: "(!)",
                 title: "Fail loud, not silent",
-                body: "A pipeline that swallows errors and marks rows 'processed' is worse than one that crashes. If something is wrong, scream and stop. Silent failures cost weeks.",
+                body: "The worst pipeline I ever inherited marked broken rows as 'processed' and moved on. Weeks of quiet corruption. If something's wrong, my code screams and stops. I'd rather get paged than get surprised.",
                 accent: "text-violet-400",
               },
             ].map(({ icon, title, body, accent }) => (
@@ -118,7 +119,7 @@ export default function Home() {
       {/* EXPERTISE BY DOMAIN */}
       <section className="bg-slate-950 border-t border-slate-800">
         <div className="max-w-screen-2xl mx-auto px-6 py-10">
-          <p className="text-slate-600 text-xs font-mono mb-6 uppercase tracking-widest">// where I operate</p>
+          <p className="text-slate-600 text-xs font-mono mb-6 uppercase tracking-widest">// what I work with</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
               {
@@ -170,7 +171,7 @@ export default function Home() {
         <div className="flex items-baseline justify-between mb-8 gap-4">
           <div>
             <p className="text-xs font-mono text-slate-500 mb-1">$ ls ~/projects</p>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400">Open source work</h2>
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400">Things I&apos;ve built and open-sourced</h2>
           </div>
           <a href="https://github.com/Sankartk" className="text-xs text-violet-400 hover:text-violet-300 transition-colors flex-shrink-0 font-mono" target="_blank" rel="noopener noreferrer">github.com/Sankartk ↗</a>
         </div>
@@ -178,8 +179,8 @@ export default function Home() {
         {/* PROJECTS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          {/* CARD 01 â€" FinFlow */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          {/* CARD 01 — FinFlow */}
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-1">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -301,7 +302,7 @@ export default function Home() {
           </div>
 
           {/* CARD 02 â€" CashCast */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-5">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -312,7 +313,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-cyan-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">02</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-cyan-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">05</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Cash Ops &middot; Python + ML</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
@@ -440,7 +441,7 @@ export default function Home() {
           </div>
 
           {/* CARD 02 â€” FleetPulse */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-7">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -451,7 +452,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-orange-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">03</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-orange-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">07</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Fleet Ops &middot; Java</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
@@ -567,7 +568,7 @@ export default function Home() {
           </div>
 
           {/* CARD 03 â€” Ops Copilot */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-6">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -578,7 +579,7 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-blue-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">04</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-blue-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">06</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Incident Response &middot; AWS</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
@@ -662,7 +663,7 @@ export default function Home() {
           </div>
 
           {/* CARD 05 — market-microstructure */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-4">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -673,11 +674,11 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-rose-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">05</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-rose-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">04</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">HFT &middot; C++20</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="https://github.com/Sankartk/market-microstructure" className="hover:text-rose-400 transition-colors" target="_blank" rel="noopener noreferrer">market-microstructure</a>
+                    <a href="/projects/market-microstructure" className="hover:text-rose-400 transition-colors">market-microstructure</a>
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -720,13 +721,14 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="https://github.com/Sankartk/market-microstructure" className="text-sm font-bold text-rose-400 hover:text-rose-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                <a href="/projects/market-microstructure" className="text-sm font-bold text-rose-400 hover:text-rose-300 transition-colors">Full write-up &rarr;</a>
+                <a href="https://github.com/Sankartk/market-microstructure" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
               </div>
             </div>
           </div>
 
           {/* CARD 06 — alpha-engine */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-3">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -737,11 +739,11 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-emerald-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">06</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-emerald-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">03</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Quant Trading &middot; Python</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="https://github.com/Sankartk/alpha-engine" className="hover:text-emerald-400 transition-colors" target="_blank" rel="noopener noreferrer">alpha-engine</a>
+                    <a href="/projects/alpha-engine" className="hover:text-emerald-400 transition-colors">alpha-engine</a>
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -784,13 +786,14 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="https://github.com/Sankartk/alpha-engine" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                <a href="/projects/alpha-engine" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">Full write-up &rarr;</a>
+                <a href="https://github.com/Sankartk/alpha-engine" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
               </div>
             </div>
           </div>
 
           {/* CARD 07 — regwatch */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col">
+          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-2">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
@@ -801,11 +804,11 @@ export default function Home() {
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-amber-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">07</span>
+                    <span className="text-[10px] font-mono font-bold text-white bg-amber-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">02</span>
                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">RegTech &middot; Python + LLM</span>
                   </div>
                   <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="https://github.com/Sankartk/regwatch" className="hover:text-amber-400 transition-colors" target="_blank" rel="noopener noreferrer">regwatch</a>
+                    <a href="/projects/regwatch" className="hover:text-amber-400 transition-colors">regwatch</a>
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -848,7 +851,8 @@ export default function Home() {
                 ))}
               </div>
               <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="https://github.com/Sankartk/regwatch" className="text-sm font-bold text-amber-400 hover:text-amber-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                <a href="/projects/regwatch" className="text-sm font-bold text-amber-400 hover:text-amber-300 transition-colors">Full write-up &rarr;</a>
+                <a href="https://github.com/Sankartk/regwatch" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
               </div>
             </div>
           </div>
@@ -865,11 +869,11 @@ export default function Home() {
               <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">available for new roles</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight max-w-lg">
-              Looking for a senior engineer who ships production-grade systems?
+              Hiring for this kind of work? I&apos;d like to hear about it.
             </h2>
             <p className="text-slate-400 text-sm max-w-md leading-relaxed">
-              I work best on data-heavy problems — pipelines, ML systems, cloud infrastructure, backend APIs.
-              Reach out and let&apos;s see if there&apos;s a fit.
+              The projects above are the best representation of how I work — every one of them runs,
+              has tests, and has a write-up. If that&apos;s the kind of engineer you need, my inbox is open.
             </p>
           </div>
           <div className="flex flex-col gap-3 flex-shrink-0">
