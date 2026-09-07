@@ -698,7 +698,7 @@ export default function Home() {
                   "Lock-free per-symbol books &mdash; intrusive linked list within price levels",
                   "4 abuse detectors: spoofing, layering, momentum ignition, quote stuffing",
                   "Sliding-window pattern engine &mdash; 60s rolling state per symbol",
-                  "Benchmarks: ~45ns add_order, ~38ns cancel, 83M snapshots/sec",
+                  "Benchmarks: 673ns add, 29ns cancel, 1B snapshots/sec &mdash; measured, not estimated",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
                     <span className="text-rose-500 mt-0.5 flex-shrink-0">&rarr;</span>
@@ -708,9 +708,9 @@ export default function Home() {
               </ul>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
-                  { label: "add_order", value: "45ns", c: "text-rose-400" },
-                  { label: "cancel", value: "38ns", c: "text-slate-300" },
-                  { label: "snapshots/s", value: "83M", c: "text-cyan-400" },
+                  { label: "add_order", value: "673ns", c: "text-rose-400" },
+                  { label: "cancel", value: "29ns", c: "text-slate-300" },
+                  { label: "snapshots/s", value: "1B", c: "text-cyan-400" },
                   { label: "Detectors", value: "4", c: "text-slate-300" },
                 ].map(({ label, value, c }) => (
                   <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
