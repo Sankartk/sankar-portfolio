@@ -3,6 +3,11 @@ import Navbar from "../../../components/Navbar"
 export const metadata = {
   title: 'alpha-engine — Sankar Kalyanakumar',
   description: 'A backtesting framework that tries to prove your trading strategy wrong before the market does — real costs, walk-forward validation, live paper trading.',
+  openGraph: {
+    title: 'alpha-engine',
+    description: 'Everyone has a strategy that "would have worked." This tries to prove you wrong first.',
+    url: 'https://sankartk.dev/projects/alpha-engine',
+  },
 }
 
 export default function AlphaEngine() {

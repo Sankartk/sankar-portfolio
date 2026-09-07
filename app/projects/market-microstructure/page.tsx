@@ -3,6 +3,11 @@ import Navbar from "../../../components/Navbar"
 export const metadata = {
   title: 'market-microstructure — Sankar Kalyanakumar',
   description: 'A C++20 limit order book that reads NASDAQ\u2019s real feed format and watches for market manipulation while it works.',
+  openGraph: {
+    title: 'market-microstructure',
+    description: 'What happens inside an exchange between "buy" and "filled"?',
+    url: 'https://sankartk.dev/projects/market-microstructure',
+  },
 }
 
 export default function MarketMicrostructure() {

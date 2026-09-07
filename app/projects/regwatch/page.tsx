@@ -3,6 +3,11 @@ import Navbar from "../../../components/Navbar"
 export const metadata = {
   title: 'regwatch — Sankar Kalyanakumar',
   description: 'The compliance gate between an AI trading signal and the broker — five hard rules, an immutable audit trail, and an LLM that reads new SEC filings.',
+  openGraph: {
+    title: 'regwatch',
+    description: 'An AI wrote a trading signal. Who checks it before money moves?',
+    url: 'https://sankartk.dev/projects/regwatch',
+  },
 }
 
 export default function Regwatch() {
