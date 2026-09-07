@@ -1,900 +1,296 @@
 import Navbar from "../components/Navbar"
 
+const projects = [
+  {
+    n: "01",
+    name: "FinFlow",
+    href: "/projects/finflow",
+    github: "https://github.com/Sankartk/finflow",
+    domain: "Financial reconciliation · Python",
+    spine: "bg-violet-500",
+    accent: "text-violet-700",
+    hook: "Every reconciliation break has a reason. This finds it automatically.",
+    story: "Kafka streams transactions in, five passes match them — exact, timing, fuzzy reference, amount, then a local LLM for the stubborn ones. pgvector remembers past anomalies so the same surprise never happens twice. 94% of breaks resolve without a human.",
+    facts: [["auto-matched", "94.2%"], ["LLM cost", "$0"], ["passes", "5"]],
+    preview: [
+      ["Exact match", "1,243", 66, "#8b5cf6"],
+      ["Timing tolerance", "389", 57, "#a78bfa"],
+      ["Fuzzy reference", "168", 42, "#c4b5fd"],
+      ["Amount threshold", "71", 22, "#ddd6fe"],
+      ["AI resolution", "13", 8, "#7c3aed"],
+    ],
+    previewLabel: "match breakdown, latest run",
+  },
+  {
+    n: "02",
+    name: "regwatch",
+    href: "/projects/regwatch",
+    github: "https://github.com/Sankartk/regwatch",
+    domain: "AI compliance · Python + LLM",
+    spine: "bg-amber-500",
+    accent: "text-amber-700",
+    hook: "An AI wrote a trading signal. Who checks it before money moves?",
+    story: "A gate between strategy and broker. Five rules — position limits, restricted lists, wash trades, concentration, and EU AI Act human-oversight — check every proposed trade. It also reads new SEC filings and drafts candidate rules for human review. Every check lands in an audit trail that can't be edited.",
+    facts: [["rules", "5"], ["EU AI Act", "Art. 14"], ["audit", "immutable"]],
+    preview: null,
+    previewLabel: null,
+  },
+  {
+    n: "03",
+    name: "alpha-engine",
+    href: "/projects/alpha-engine",
+    github: "https://github.com/Sankartk/alpha-engine",
+    domain: "Quant trading · Python",
+    spine: "bg-emerald-500",
+    accent: "text-emerald-700",
+    hook: "Everyone has a strategy that “would have worked.” This tries to prove you wrong first.",
+    story: "Signals are shifted a day before touching returns, so lookahead is structurally impossible. Every rebalance pays spread and market impact. Walk-forward validation exposes overfit strategies. Then the same weights go to Alpaca's paper API for real fills — the gap between backtest and paper is itself a measurement.",
+    facts: [["strategies", "2"], ["metrics", "13"], ["lookahead", "impossible"]],
+    preview: null,
+    previewLabel: null,
+  },
+  {
+    n: "04",
+    name: "market-microstructure",
+    href: "/projects/market-microstructure",
+    github: "https://github.com/Sankartk/market-microstructure",
+    domain: "Order book engine · C++20",
+    spine: "bg-rose-500",
+    accent: "text-rose-700",
+    hook: "What happens inside an exchange between “buy” and “filled”?",
+    story: "A limit order book that reads NASDAQ's real wire format and watches for manipulation in the same process — spoofing, layering, momentum ignition, quote stuffing. My first benchmark claimed 45ns per order; the real measured number was 673ns. Fixing the measurement taught me more than the code.",
+    facts: [["add", "673ns"], ["cancel", "29ns"], ["detectors", "4"]],
+    preview: null,
+    previewLabel: null,
+  },
+  {
+    n: "05",
+    name: "CashCast",
+    href: "/projects/cashcast",
+    github: "https://github.com/Sankartk/cashcast",
+    domain: "Cash forecasting · Python + ML",
+    spine: "bg-cyan-500",
+    accent: "text-cyan-700",
+    hook: "Every branch pads its vault order 15–20% as a buffer. This turns the buffer into a number.",
+    story: "Ridge regression per branch over 730 days, Isolation Forest to flag demand anomalies, a 14-day horizon with confidence bands. The guess becomes an order recommendation with a reason behind it.",
+    facts: [["avg MAPE", "9.1%"], ["tests", "14/14"], ["horizon", "14d"]],
+    preview: null,
+    previewLabel: null,
+  },
+  {
+    n: "06",
+    name: "Ops Copilot",
+    href: "/projects/ops-copilot",
+    github: "https://github.com/Sankartk/ops-copilot-bedrock",
+    domain: "Incident response · AWS",
+    spine: "bg-blue-500",
+    accent: "text-blue-700",
+    hook: "2am. Service is down. The fix is buried in a 40-page runbook.",
+    story: "RAG over your own runbooks — answers cite the exact file and line, and the LLM only quotes what it found. Remediation pauses at an SNS approval gate; nothing touches production until a human says so.",
+    facts: [["vector db", "FAISS"], ["gate", "SNS"], ["workflow", "StepFn"]],
+    preview: null,
+    previewLabel: null,
+  },
+  {
+    n: "07",
+    name: "FleetPulse",
+    href: "/projects/fleetpulse",
+    github: "https://github.com/Sankartk/fleetpulse",
+    domain: "Fleet ops · Java",
+    spine: "bg-orange-500",
+    accent: "text-orange-700",
+    hook: "A truck breaks down. The service was six weeks overdue. The spreadsheet was the last to know.",
+    story: "An hourly scheduler catches overdue maintenance before anyone checks. Alerts are idempotent — the same event fires once, not on every poll. 25+ endpoints, role-based access, 16/16 integration tests.",
+    facts: [["endpoints", "25+"], ["tests", "16/16"], ["stack", "Java 21"]],
+    preview: null,
+    previewLabel: null,
+  },
+]
+
 export default function Home() {
   return (
-    <main className="bg-slate-950 text-gray-900 min-h-screen font-sans">
+    <main className="bg-[#faf9f6] text-stone-900 min-h-screen font-sans">
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-slate-950 text-white">
-        {/* availability banner */}
-        <div className="border-b border-slate-800 bg-slate-900">
-          <div className="max-w-screen-2xl mx-auto px-6 py-2 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"/>
-            <span className="text-xs font-mono text-emerald-400">open to senior / staff engineering roles</span>
-            <span className="text-slate-700 mx-1">·</span>
-            <span className="text-xs text-slate-500 font-mono">Newark, DE · remote / hybrid</span>
+      <section className="border-b border-stone-200">
+        <div className="max-w-4xl mx-auto px-6 pt-16 pb-14">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"/>
+            <span className="text-xs font-medium text-emerald-700">Open to senior engineering roles</span>
+            <span className="text-stone-300">·</span>
+            <span className="text-xs text-stone-500">Newark, DE</span>
           </div>
-        </div>
 
-        <div className="max-w-screen-2xl mx-auto px-6 pt-14 pb-12">
           <div className="flex flex-col sm:flex-row items-start gap-8">
-
-            {/* photo */}
-            <div className="flex-shrink-0">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-violet-700 opacity-20 blur-xl scale-110"/>
-                <img
-                  src="/profile.jpg"
-                  className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border border-slate-700 object-cover"
-                  alt="Sankar"
-                />
-              </div>
-            </div>
-
-            {/* text */}
-            <div className="flex flex-col gap-3 flex-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] font-mono font-bold text-violet-400 bg-violet-950 border border-violet-800 px-2 py-0.5 rounded uppercase tracking-widest">Senior Software &amp; Data Engineer</span>
-                <span className="text-slate-600 text-xs font-mono">· 6 years</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none">
-                Sankar<br className="sm:hidden"/> Kalyanakumar
+            <img
+              src="/profile.jpg"
+              className="w-20 h-20 rounded-2xl object-cover border border-stone-200 flex-shrink-0"
+              alt="Sankar"
+            />
+            <div>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] mb-4">
+                Sankar Kalyanakumar
               </h1>
-              <p className="text-slate-200 text-xl sm:text-2xl font-semibold leading-snug max-w-2xl mt-1">
+              <p className="text-xl text-stone-700 font-medium leading-snug max-w-xl mb-4">
                 I build systems where bad data can&apos;t hide.
               </p>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
-                Six years of data pipelines and backend systems in finance. Lately I&apos;ve been going deeper —
-                a C++ order book that parses NASDAQ&apos;s real feed format, a backtester that doesn&apos;t lie to you,
-                and a compliance gate for AI-generated trades. Everything below is open source and runs.
+              <p className="text-stone-500 text-[15px] leading-relaxed max-w-xl">
+                Six years of data pipelines and backend systems in finance — reconciliation engines,
+                forecasting services, the kind of infrastructure nobody notices until it breaks.
+                The through-line: I don&apos;t trust my own input. Validate at the boundary,
+                fail loud, and never let automation do something irreversible without a gate.
+                Below is the work — every project runs, has tests, and has a write-up.
               </p>
-
-              <div className="flex gap-4 mt-1 text-sm flex-wrap">
-                <a href="mailto:karthicks399@gmail.com" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group">
-                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> karthicks399@gmail.com
-                </a>
-                <a href="https://linkedin.com/in/sankartk11" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group" target="_blank" rel="noopener noreferrer">
-                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> LinkedIn
-                </a>
-                <a href="https://github.com/Sankartk" className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors group" target="_blank" rel="noopener noreferrer">
-                  <span className="font-mono text-violet-500 group-hover:text-violet-400">→</span> GitHub
-                </a>
+              <div className="flex gap-5 mt-6 text-sm">
+                <a href="mailto:karthicks399@gmail.com" className="font-medium text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-900 transition-all">karthicks399@gmail.com</a>
+                <a href="https://linkedin.com/in/sankartk11" className="font-medium text-stone-500 hover:text-stone-900 transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/Sankartk" className="font-medium text-stone-500 hover:text-stone-900 transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </div>
-
-          {/* stat strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 rounded-xl overflow-hidden mt-10 border border-slate-800">
-            {[
-              { label: "Years of experience", value: "6+", color: "text-violet-400" },
-              { label: "Production-grade projects", value: "7", color: "text-cyan-400" },
-              { label: "Core domains", value: "Data · Backend · Cloud · AI · Quant", color: "text-emerald-400" },
-              { label: "Stack depth", value: "Python · Java · C++ · AWS · Kafka", color: "text-slate-300" },
-            ].map(({ label, value, color }) => (
-              <div key={label} className="bg-slate-950 px-5 py-4">
-                <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-1">{label}</p>
-                <p className={`text-sm font-extrabold leading-tight ${color}`}>{value}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* PRINCIPLES STRIP */}
-      <section className="bg-slate-900 border-t border-slate-800">
-        <div className="max-w-screen-2xl mx-auto px-6 py-7">
-          <p className="text-slate-600 text-xs font-mono mb-5 uppercase tracking-widest">// three rules I keep coming back to</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* PRINCIPLES */}
+      <section className="border-b border-stone-200 bg-[#f4f3ef]">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-6">Three rules I keep coming back to</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "[x]",
                 title: "Validate at the boundary",
-                body: "I learned this one the hard way: once bad data gets three steps downstream, nobody trusts anything the pipeline produces. So I check at the door — log what failed, say why, and stop the line.",
-                accent: "text-emerald-400",
+                body: "I learned this one the hard way: once bad data gets three steps downstream, nobody trusts anything the pipeline produces. So I check at the door — log what failed, say why, stop the line.",
               },
               {
-                icon: "||",
                 title: "Pause before irreversible",
                 body: "Automation is most dangerous right before it does something permanent. Every automated action I build gets a gate first — approval, confirmation, timeout — and only then the action.",
-                accent: "text-blue-400",
               },
               {
-                icon: "(!)",
                 title: "Fail loud, not silent",
-                body: "The worst pipeline I ever inherited marked broken rows as 'processed' and moved on. Weeks of quiet corruption. If something's wrong, my code screams and stops. I'd rather get paged than get surprised.",
-                accent: "text-violet-400",
+                body: "The worst pipeline I ever inherited marked broken rows as “processed” and moved on. Weeks of quiet corruption. If something's wrong, my code screams. I'd rather get paged than get surprised.",
               },
-            ].map(({ icon, title, body, accent }) => (
-              <div key={title} className="bg-slate-800 rounded-xl p-5 border border-slate-700 flex flex-col gap-3">
-                <span className={`text-sm font-mono font-bold ${accent}`}>{icon}</span>
-                <h3 className="text-sm font-bold text-white">{title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed" dangerouslySetInnerHTML={{ __html: body }} />
+            ].map(({ title, body }) => (
+              <div key={title}>
+                <h3 className="font-bold text-stone-900 text-sm mb-2">{title}</h3>
+                <p className="text-stone-500 text-[13px] leading-relaxed">{body}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERTISE BY DOMAIN */}
-      <section className="bg-slate-950 border-t border-slate-800">
-        <div className="max-w-screen-2xl mx-auto px-6 py-10">
-          <p className="text-slate-600 text-xs font-mono mb-6 uppercase tracking-widest">// what I work with</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {[
-              {
-                domain: "Data Engineering",
-                icon: "▶",
-                accent: "border-violet-700 text-violet-400",
-                skills: ["AWS Glue · Redshift · S3","Kafka · DynamoDB · PostgreSQL","pgvector · Airflow","ETL/ELT · CDC patterns"],
-              },
-              {
-                domain: "Backend Systems",
-                icon: "⬡",
-                accent: "border-orange-700 text-orange-400",
-                skills: ["Java 21 · Spring Boot","FastAPI · GraphQL","REST · event-driven","Docker · Flyway · JPA"],
-              },
-              {
-                domain: "Cloud & Infrastructure",
-                icon: "◆",
-                accent: "border-cyan-700 text-cyan-400",
-                skills: ["AWS · Azure Synapse","Step Functions · SNS · SQS","Terraform · IaC","Bedrock · Lambda"],
-              },
-              {
-                domain: "Quant & Systems",
-                icon: "◎",
-                accent: "border-rose-700 text-rose-400",
-                skills: ["C++20 · lock-free structures","ITCH 5.0 · order book engines","Backtesting · walk-forward","RAG · LLM grounding · Ollama"],
-              },
-            ].map(({ domain, icon, accent, skills }) => {
-              const [border, text] = accent.split(" ");
-              return (
-                <div key={domain} className={`rounded-xl border ${border} bg-slate-900 p-4 flex flex-col gap-3`}>
-                  <div className="flex items-center gap-2">
-                    <span className={`text-xs font-mono font-bold ${text}`}>{icon}</span>
-                    <h3 className="text-xs font-bold text-white uppercase tracking-widest">{domain}</h3>
-                  </div>
-                  <ul className="flex flex-col gap-1">
-                    {skills.map(s => (
-                      <li key={s} className={`text-[11px] font-mono ${text} opacity-80`}>{s}</li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className="max-w-screen-2xl mx-auto px-6 pt-12 pb-10">
-        <div className="flex items-baseline justify-between mb-8 gap-4">
-          <div>
-            <p className="text-xs font-mono text-slate-500 mb-1">$ ls ~/projects</p>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400">Things I&apos;ve built and open-sourced</h2>
-          </div>
-          <a href="https://github.com/Sankartk" className="text-xs text-violet-400 hover:text-violet-300 transition-colors flex-shrink-0 font-mono" target="_blank" rel="noopener noreferrer">github.com/Sankartk ↗</a>
+      <section id="projects" className="max-w-4xl mx-auto px-6 py-14">
+        <div className="flex items-baseline justify-between mb-10">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400">Selected work</h2>
+          <a href="https://github.com/Sankartk" className="text-xs text-stone-400 hover:text-stone-600 transition-colors" target="_blank" rel="noopener noreferrer">all code on GitHub ↗</a>
         </div>
 
-        {/* PROJECTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="flex flex-col">
+          {projects.map((p) => (
+            <article key={p.n} className="relative pl-6 py-9 border-b border-stone-200 last:border-0 group">
+              {/* spine */}
+              <span className={`absolute left-0 top-9 bottom-9 w-[3px] rounded-full ${p.spine} opacity-70 group-hover:opacity-100 transition-opacity`}/>
 
-          {/* CARD 01 — FinFlow */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-1">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">finflow &mdash; ai-native reconciliation engine</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-violet-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">01</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Financial Ops &middot; Python</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/finflow" className="hover:text-violet-400 transition-colors">FinFlow</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","Kafka","PostgreSQL","pgvector","Ollama","FastAPI","GraphQL","Streamlit"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
+              <div className="flex items-baseline gap-4 mb-2 flex-wrap">
+                <span className="font-mono text-xs text-stone-400">{p.n}</span>
+                <h3 className="text-2xl font-bold tracking-tight">
+                  <a href={p.href} className="hover:underline decoration-stone-300 underline-offset-4">{p.name}</a>
+                </h3>
+                <span className="text-xs text-stone-400">{p.domain}</span>
               </div>
-              <div className="border-l-4 border-violet-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Every reconciliation break has a reason. FinFlow finds it automatically &mdash; exact match, timing gap, fuzzy reference, amount delta, or AI resolution.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Kafka ingestion with checkpoint-based replay &mdash; no message lost on restart",
-                  "Five-pass engine: exact &rarr; timing &rarr; fuzzy reference &rarr; amount threshold &rarr; Ollama AI",
-                  "pgvector cosine search finds similar historical anomalies &mdash; memory across runs",
-                  "Ollama llama3.2 explains residual breaks in natural language, zero API costs",
-                  "FastAPI + Strawberry GraphQL over reconciliation data &mdash; typed queries, playground UI",
-                  "Streamlit dashboard: match rate trend, anomaly cards, one-click resolve",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-violet-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Match Rate", value: "94%+", c: "text-violet-400" },
-                  { label: "Passes", value: "5", c: "text-cyan-400" },
-                  { label: "LLM", value: "Ollama", c: "text-slate-300" },
-                  { label: "Stack", value: "Python", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
+
+              <p className={`text-[15px] font-semibold leading-snug max-w-2xl mb-3 ${p.accent}`}>
+                {p.hook}
+              </p>
+              <p className="text-stone-500 text-sm leading-relaxed max-w-2xl mb-4">
+                {p.story}
+              </p>
+
+              {/* facts */}
+              <div className="flex gap-6 mb-4 flex-wrap">
+                {p.facts.map(([label, value]) => (
+                  <div key={label}>
+                    <p className="text-[10px] uppercase tracking-widest text-stone-400">{label}</p>
+                    <p className="text-sm font-bold text-stone-800">{value}</p>
                   </div>
                 ))}
               </div>
-              {/* FinFlow Dashboard */}
-              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
-                  <span className="text-xs font-mono text-violet-400 font-bold">&#9670; FinFlow</span>
-                  <span className="hidden sm:block text-xs font-mono text-slate-500">Reconciliation Engine</span>
-                  <span className="text-xs text-slate-600">:8501</span>
-                </div>
-                <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
-                  {[
-                    { label: "Match Rate", value: "94.2%", color: "#a78bfa" },
-                    { label: "Matched",    value: "1,884", color: "#4ade80" },
-                    { label: "Breaks",     value: "116",   color: "#f87171" },
-                    { label: "Anomalies", value: "3",     color: "#fbbf24" },
-                  ].map(({ label, value, color }) => (
-                    <div key={label} className="bg-slate-950 p-2.5 text-center">
-                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
-                      <p className="text-sm font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="p-3 border-b border-slate-800">
-                  <p className="text-[9px] font-mono text-slate-500 mb-2">// match pass breakdown</p>
-                  <div className="flex flex-col gap-1.5">
-                    {[
-                      ["Exact Match",       "1,243", "#a78bfa", 66],
-                      ["Timing Tolerance",  "389",   "#818cf8", 57],
-                      ["Fuzzy Reference",   "168",   "#6366f1", 42],
-                      ["Amount Threshold",  "71",    "#4f46e5", 22],
-                      ["AI Resolution",     "13",    "#7c3aed",  8],
-                    ].map(([pass, count, color, pct]) => (
-                      <div key={String(pass)} className="flex items-center gap-1.5">
-                        <span className="text-[8px] font-mono text-slate-400 w-24 flex-shrink-0">{pass}</span>
-                        <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
-                          <div className="h-1.5 rounded" style={{ background: String(color), width: `${Number(pct)}%` }}/>
+
+              {/* optional evidence preview */}
+              {p.preview && (
+                <div className="rounded-lg border border-stone-200 bg-white p-4 max-w-xl mb-4">
+                  <p className="text-[10px] uppercase tracking-widest text-stone-400 mb-3">{p.previewLabel}</p>
+                  <div className="flex flex-col gap-2">
+                    {p.preview.map(([label, count, pct, color]) => (
+                      <div key={String(label)} className="flex items-center gap-3">
+                        <span className="text-xs text-stone-500 w-28 flex-shrink-0">{label}</span>
+                        <div className="flex-1 h-1.5 bg-stone-100 rounded-full overflow-hidden">
+                          <div className="h-1.5 rounded-full" style={{ background: String(color), width: `${Number(pct)}%` }}/>
                         </div>
-                        <span className="text-[8px] font-mono w-10 text-right" style={{ color: String(color) }}>{count}</span>
+                        <span className="text-xs font-semibold text-stone-700 w-10 text-right">{count}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                <div className="p-3">
-                  <p className="text-[9px] font-mono text-slate-500 mb-2">// open anomalies</p>
-                  <div className="flex flex-col gap-1">
-                    {[
-                      ["volume_spike",          "ENTITY_A", "Unmatched 2.3\u00d7 7-day rolling avg", "#fbbf24"],
-                      ["entity_concentration",  "ENTITY_B", "38% of breaks from one entity",        "#f97316"],
-                    ].map(([type, entity, msg, color]) => (
-                      <div key={String(type)} className="flex items-center gap-2 bg-slate-900 rounded px-2 py-1">
-                        <span className="text-[8px] font-mono px-1.5 py-0.5 rounded flex-shrink-0" style={{ background: `${String(color)}22`, color: String(color) }}>{type}</span>
-                        <span className="text-[8px] font-mono text-cyan-400 flex-shrink-0">{entity}</span>
-                        <span className="text-[8px] text-slate-400 flex-1 truncate">{msg}</span>
-                        <span className="text-[8px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono flex-shrink-0">resolve</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/finflow" className="text-sm font-bold text-violet-400 hover:text-violet-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/finflow" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
+              )}
 
-          {/* CARD 02 â€" CashCast */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-5">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">cashcast &mdash; branch cash intelligence</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-cyan-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">05</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Cash Ops &middot; Python + ML</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/cashcast" className="hover:text-cyan-400 transition-colors">CashCast</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","FastAPI","Ridge Regression","Isolation Forest","Plotly.js","Swagger"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
+              <div className="flex gap-5 text-sm">
+                <a href={p.href} className="font-medium text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-900 transition-all">Read the write-up</a>
+                <a href={p.github} className="text-stone-400 hover:text-stone-700 transition-colors" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
               </div>
-              <div className="border-l-4 border-cyan-500 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Every branch pads its vault order 15&ndash;20% as a buffer. CashCast forecasts that demand with ML &mdash; the buffer becomes a number, not a guess.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Ridge regression per branch, 730 days &mdash; avg MAPE 9.1%",
-                  "Isolation Forest flags demand anomalies before vault gaps occur",
-                  "14-day forecast with confidence bands + $1K-rounded order rec",
-                  "AI narrative: peak day, seasonal delta, idle cash risk per branch",
-                  "Plotly.js ops dashboard: vault status, charts, CSV export",
-                  "Swagger at <code>/docs</code> &mdash; 5 tagged endpoints, fully documented",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-cyan-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Avg MAPE", value: "9.1%", c: "text-emerald-400" },
-                  { label: "Tests", value: "14 / 14", c: "text-cyan-400" },
-                  { label: "Branches", value: "6", c: "text-slate-300" },
-                  { label: "Horizon", value: "14 days", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              {/* CashCast Dashboard mockup */}
-              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
-                {/* top bar */}
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
-                  <span className="text-xs font-mono text-cyan-400 font-bold">&#9675; CashCast</span>
-                  <span className="hidden sm:block text-xs font-mono text-slate-500">Branch Cash Intelligence</span>
-                  <span className="text-xs text-slate-600">:8001</span>
-                </div>
-                {/* KPI row */}
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-slate-800 border-b border-slate-800">
-                  {[
-                    { label: "Branches",  value: "6",      color: "#22d3ee" },
-                    { label: "Avg MAPE",  value: "9.1%",   color: "#4ade80" },
-                    { label: "Total Rec", value: "$867K",  color: "#22d3ee" },
-                    { label: "Horizon",   value: "14d",    color: "#94a3b8" },
-                    { label: "Anomalies", value: "2",      color: "#fbbf24" },
-                    { label: "High Risk", value: "1",      color: "#f87171" },
-                  ].map(({ label, value, color }) => (
-                    <div key={label} className="bg-slate-950 p-2.5 text-center">
-                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
-                      <p className="text-sm sm:text-lg font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
-                    </div>
-                  ))}
-                </div>
-                {/* forecast chart + branch rec bars */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
-                  {/* forecast — 2/3 */}
-                  <div className="sm:col-span-2 p-3 border-b sm:border-b-0 sm:border-r border-slate-800">
-                    <p className="text-[9px] font-mono text-slate-500 mb-2">// 14-day demand forecast &mdash; BRK-01 Downtown</p>
-                    <svg viewBox="0 0 260 66" width="100%">
-                      {[12,28,44,60].map(y => (
-                        <line key={y} x1="26" y1={y} x2="260" y2={y} stroke="#1e293b" strokeWidth="0.7"/>
-                      ))}
-                      {[["$200K",12],["$150K",28],["$100K",44],["$50K",60]].map(([l,y]) => (
-                        <text key={String(y)} x="22" y={Number(y)+3} textAnchor="end" fontSize="5.5" fill="#475569">{l}</text>
-                      ))}
-                      {/* confidence band */}
-                      <polygon points="35,22 55,19 75,26 95,16 115,14 135,20 155,17 175,12 195,10 215,16 235,14 255,18 255,52 235,47 215,50 195,44 175,42 155,48 135,50 115,44 95,46 75,56 55,51 35,54" fill="#22d3ee" opacity="0.08"/>
-                      {/* actual bars past 7 */}
-                      {[[35,22],[55,19],[75,26],[95,16],[115,14],[135,20],[155,17]].map(([x,h],i) => (
-                        <rect key={i} x={Number(x)-6} y={64-Number(h)} width="11" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.45"/>
-                      ))}
-                      {/* forecast bars next 7 */}
-                      {[[175,12],[195,10],[215,16],[235,14],[255,18]].map(([x,h],i) => (
-                        <rect key={i} x={Number(x)-6} y={64-Number(h)} width="11" height={Number(h)} rx="1" fill="#22d3ee" opacity="0.18" stroke="#22d3ee" strokeWidth="0.5"/>
-                      ))}
-                      {/* trend line */}
-                      <polyline points="35,38 55,35 75,42 95,30 115,28 135,34 155,32 175,26 195,24 215,30 235,28 255,32" fill="none" stroke="#22d3ee" strokeWidth="1.2"/>
-                    </svg>
-                  </div>
-                  {/* branch order recs — 1/3 */}
-                  <div className="p-3">
-                    <p className="text-[9px] font-mono text-slate-500 mb-2">// order recs</p>
-                    <div className="flex flex-col gap-1.5">
-                      {[
-                        ["BRK-01","$148K","#4ade80",59],
-                        ["BRK-02","$93K", "#4ade80",37],
-                        ["BRK-03","$112K","#fbbf24",45],
-                        ["BRK-04","$67K", "#4ade80",27],
-                        ["BRK-05","$204K","#f87171",82],
-                        ["BRK-06","$89K", "#4ade80",36],
-                      ].map(([branch,rec,color,pct]) => (
-                        <div key={String(branch)} className="flex items-center gap-1.5">
-                          <span className="text-[8px] font-mono text-cyan-400 w-10 flex-shrink-0">{branch}</span>
-                          <div className="flex-1 h-1 bg-slate-800 rounded overflow-hidden">
-                            <div className="h-1 rounded" style={{ background: String(color), width: `${pct}%` }}/>
-                          </div>
-                          <span className="text-[8px] font-mono w-9 text-right" style={{ color: String(color) }}>{rec}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/cashcast" className="text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/cashcast" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 02 â€” FleetPulse */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-7">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">fleetpulse &mdash; fleet maintenance ops</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-orange-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">07</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Fleet Ops &middot; Java</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/fleetpulse" className="hover:text-orange-400 transition-colors">FleetPulse</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Java 21","Spring Boot","PostgreSQL","Flyway"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-orange-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;A truck breaks down. The service was six weeks overdue. The spreadsheet was the last to know.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Hourly scheduler catches overdue maintenance before anyone checks",
-                  "Idempotent alerts &mdash; same event fires once, not on every poll",
-                  "Live ops dashboard: resolve alerts, KPIs update every 60s",
-                  "25+ REST endpoints, Flyway migrations, role-based access",
-                  "16 integration tests &mdash; zero failures across full lifecycle",
-                  "PostgreSQL + Spring Data JPA, containerised with Docker Compose",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-orange-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Endpoints", value: "25+", c: "text-orange-400" },
-                  { label: "Tests", value: "16 / 16", c: "text-emerald-400" },
-                  { label: "Stack", value: "Java 21", c: "text-slate-300" },
-                  { label: "DB", value: "Postgres", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              {/* FleetPulse Dashboard mockup */}
-              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
-                  <span className="text-xs font-mono text-orange-400 font-bold">&#x2B21; FleetPulse</span>
-                  <span className="hidden sm:block text-xs font-mono text-slate-500">Operations Dashboard</span>
-                  <span className="text-xs text-slate-600">:8080</span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
-                  {[
-                    { label: "Vehicles", value: "8",     color: "#f97316" },
-                    { label: "Overdue",  value: "1",     color: "#f87171" },
-                    { label: "Alerts",   value: "3",     color: "#c084fc" },
-                    { label: "Tests",    value: "16/16", color: "#4ade80" },
-                  ].map(({ label, value, color }) => (
-                    <div key={label} className="bg-slate-950 p-2.5 text-center">
-                      <p className="text-[8px] text-slate-500 uppercase tracking-widest leading-tight">{label}</p>
-                      <p className="text-base font-extrabold leading-none mt-0.5" style={{ color }}>{value}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
-                  <div className="sm:col-span-2 p-3 border-b sm:border-b-0 sm:border-r border-slate-800">
-                    <p className="text-[9px] font-mono text-slate-500 mb-2">// unresolved alerts</p>
-                    <div className="rounded border border-slate-800 overflow-hidden">
-                      <div className="grid grid-cols-3 bg-slate-900 px-2 py-1">
-                        {["Vehicle","Type","Severity"].map(h => (
-                          <span key={h} className="text-[8px] font-bold text-slate-600 uppercase">{h}</span>
-                        ))}
-                      </div>
-                      {[
-                        ["FP-TRK-003","MAINT_DUE",  "CRITICAL","#f87171"],
-                        ["FP-VAN-007","LIC_EXPIRY", "HIGH",    "#fbbf24"],
-                        ["FP-SUV-002","FUEL_LOW",   "MEDIUM",  "#60a5fa"],
-                      ].map(([v,t,s,c]) => (
-                        <div key={String(v)} className="grid grid-cols-3 px-2 py-1 border-t border-slate-800">
-                          <span className="text-[9px] font-mono text-orange-400 truncate">{v}</span>
-                          <span className="text-[9px] font-mono text-slate-500 truncate">{t}</span>
-                          <span className="text-[9px] font-bold" style={{ color: String(c) }}>{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="p-3">
-                    <p className="text-[9px] font-mono text-slate-500 mb-2">// fleet status</p>
-                    <div className="flex flex-col gap-1.5">
-                      {[
-                        ["Active",  "#4ade80", 5, 8],
-                        ["In Maint","#fbbf24", 2, 8],
-                        ["Retired", "#f87171", 1, 8],
-                      ].map(([label,color,n,total]) => (
-                        <div key={String(label)} className="flex items-center gap-1.5">
-                          <span className="text-[8px] text-slate-400 w-12 flex-shrink-0">{label}</span>
-                          <div className="flex-1 h-1.5 bg-slate-800 rounded overflow-hidden">
-                            <div className="h-1.5 rounded" style={{ background: String(color), width: `${(Number(n)/Number(total))*100}%` }}/>
-                          </div>
-                          <span className="text-[8px] font-bold w-3 text-right" style={{ color: String(color) }}>{n}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/fleetpulse" className="text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/fleetpulse" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 03 â€” Ops Copilot */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-6">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">ops-copilot-bedrock &mdash; incident AI</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-blue-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">06</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Incident Response &middot; AWS</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/ops-copilot" className="hover:text-blue-400 transition-colors">Ops Copilot</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","AWS Bedrock","Step Functions","FAISS"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-blue-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;2am. Service is down. The fix is buried somewhere in a 40-page runbook.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "FAISS-indexed runbooks &mdash; answers cite exact file and line number",
-                  "LLM stays grounded: only quotes what it found, never invents steps",
-                  "Step Functions pauses at SNS gate &mdash; nothing runs until approved",
-                  "Human-in-the-loop: approve or reject before any remediation fires",
-                  "Swap one env var to switch between Ollama (local) and AWS Bedrock",
-                  "Modular retriever: swap FAISS for any vector store without rewriting",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-blue-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Vector DB", value: "FAISS", c: "text-blue-400" },
-                  { label: "LLM", value: "Bedrock", c: "text-slate-300" },
-                  { label: "Gate", value: "SNS", c: "text-slate-300" },
-                  { label: "Workflow", value: "StepFn", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              {/* Ops Copilot RAG UI mockup */}
-              <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
-                  <span className="text-xs font-mono text-blue-400 font-bold">&#9900; Ops Copilot</span>
-                  <span className="hidden sm:block text-xs font-mono text-slate-500">RAG Interface</span>
-                  <span className="text-xs text-slate-600">:8501</span>
-                </div>
-                <div className="p-3 border-b border-slate-800">
-                  <p className="text-[9px] font-mono text-slate-500 mb-1.5">// incident query</p>
-                  <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded px-3 py-1.5">
-                    <span className="text-[10px] font-mono text-slate-300 flex-1">prod-db disk full &mdash; what do I do?</span>
-                    <span className="text-[9px] bg-blue-700 text-white px-1.5 py-0.5 rounded font-mono flex-shrink-0">ask</span>
-                  </div>
-                </div>
-                <div className="p-3 flex flex-col gap-2">
-                  <p className="text-[9px] font-mono text-slate-500">// answer &mdash; grounded in runbooks</p>
-                  <div className="bg-slate-900 rounded border border-slate-800 p-2.5 flex flex-col gap-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[8px] bg-slate-800 text-blue-300 font-mono px-1.5 py-0.5 rounded flex-shrink-0">runbooks/db.md #L42</span>
-                      <span className="text-[8px] text-slate-500">similarity 0.93</span>
-                    </div>
-                    <p className="text-[10px] text-slate-300 leading-relaxed">Run <code className="text-blue-400 bg-slate-800 px-0.5 rounded text-[9px]">df -h /var/lib/postgresql</code> to confirm. If &gt;90%, execute cleanup as per section 3.2.</p>
-                    <div className="flex items-center gap-2 pt-1.5 border-t border-slate-800">
-                      <span className="text-[8px] font-mono text-slate-500 flex-1">&#x1F512; remediation pending approval</span>
-                      <span className="text-[9px] bg-emerald-700 text-white px-2 py-0.5 rounded font-bold">APPROVE</span>
-                      <span className="text-[9px] bg-red-900 text-red-300 px-2 py-0.5 rounded font-bold">REJECT</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/ops-copilot" className="text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/ops-copilot-bedrock" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 05 — market-microstructure */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-4">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">market-microstructure &mdash; c++ order book</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-rose-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">04</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">HFT &middot; C++20</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/market-microstructure" className="hover:text-rose-400 transition-colors">market-microstructure</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["C++20","CMake","ITCH 5.0","Lock-free","Nanosec"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-rose-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;An order book that allocates nothing in the hot path. Spoofing detection in the same process, same microsecond.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Pool allocator &mdash; zero malloc/free after warmup, cache-line aligned orders",
-                  "ITCH 5.0 binary parser &mdash; no heap allocation per message",
-                  "Lock-free per-symbol books &mdash; intrusive linked list within price levels",
-                  "4 abuse detectors: spoofing, layering, momentum ignition, quote stuffing",
-                  "Sliding-window pattern engine &mdash; 60s rolling state per symbol",
-                  "Benchmarks: 673ns add, 29ns cancel, 1B snapshots/sec &mdash; measured, not estimated",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-rose-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "add_order", value: "673ns", c: "text-rose-400" },
-                  { label: "cancel", value: "29ns", c: "text-slate-300" },
-                  { label: "snapshots/s", value: "1B", c: "text-cyan-400" },
-                  { label: "Detectors", value: "4", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/market-microstructure" className="text-sm font-bold text-rose-400 hover:text-rose-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/market-microstructure" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 06 — alpha-engine */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-3">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">alpha-engine &mdash; quant backtester</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-emerald-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">03</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Quant Trading &middot; Python</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/alpha-engine" className="hover:text-emerald-400 transition-colors">alpha-engine</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","pandas","VectorBT","Alpaca","Plotly","Streamlit"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-emerald-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Backtests that ignore transaction costs are fiction. This one models spread + square-root impact, then proves it on live paper trades.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "Vectorised backtester &mdash; no Python loops in hot path, weights shifted 1 day (no lookahead)",
-                  "Walk-forward validation: 504d train / 63d test, stepped forward &mdash; no overfitting",
-                  "Almgren square-root market impact + spread cost model",
-                  "Momentum (12-1, vol-scaled, SMA filter) + mean reversion (z-score + RSI)",
-                  "Live paper trading via Alpaca API &mdash; real fills, real slippage",
-                  "Streamlit dashboard: NAV, drawdown, rolling Sharpe, weight heatmap",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-emerald-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Strategies", value: "2", c: "text-emerald-400" },
-                  { label: "Metrics", value: "13", c: "text-slate-300" },
-                  { label: "Walk-forward", value: "Yes", c: "text-cyan-400" },
-                  { label: "Live trading", value: "Alpaca", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/alpha-engine" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/alpha-engine" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          {/* CARD 07 — regwatch */}
-          <div className="rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex flex-col order-2">
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 opacity-80"/>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 opacity-80"/>
-              <span className="ml-3 text-xs font-mono text-slate-500">regwatch &mdash; ai compliance pipeline</span>
-            </div>
-            <div className="p-5 flex flex-col gap-4 flex-1">
-              <div className="flex items-start justify-between gap-3 flex-wrap">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono font-bold text-white bg-amber-700 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">02</span>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">RegTech &middot; Python + LLM</span>
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-tight">
-                    <a href="/projects/regwatch" className="hover:text-amber-400 transition-colors">regwatch</a>
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {["Python","Ollama","SEC EDGAR","SQLite","Streamlit","httpx"].map(t => (
-                    <span key={t} className="bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded text-[10px] font-mono">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-l-4 border-amber-600 pl-4">
-                <p className="text-white text-sm font-semibold leading-snug">
-                  &ldquo;Every AI trade decision needs a compliance gate. This one checks it, blocks it, and writes an immutable record of why.&rdquo;
-                </p>
-              </div>
-              <ul className="flex flex-col gap-1.5 flex-1">
-                {[
-                  "5 rule types: position limit, restricted list, concentration (HHI), wash trade, AI governance",
-                  "EU AI Act Art. 14: blocks LLM trades without human approval or explainable rationale",
-                  "LLM extracts rules from live SEC filings via Ollama &mdash; zero API cost",
-                  "Chain of Responsibility: HARD rules short-circuit, Observer fires violation handlers",
-                  "Immutable audit trail in SQLite &mdash; every check indexed by decision_id",
-                  "Streamlit dashboard: checks by day, violations by rule, full audit browser",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-400">
-                    <span className="text-amber-500 mt-0.5 flex-shrink-0">&rarr;</span>
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {[
-                  { label: "Rules", value: "5", c: "text-amber-400" },
-                  { label: "EU AI Act", value: "Art.14", c: "text-slate-300" },
-                  { label: "LLM", value: "Ollama", c: "text-cyan-400" },
-                  { label: "Audit", value: "SQLite", c: "text-slate-300" },
-                ].map(({ label, value, c }) => (
-                  <div key={label} className="bg-slate-900 rounded px-2 py-1.5 text-center">
-                    <p className="text-[9px] font-mono text-slate-600 uppercase tracking-wide mb-0.5 truncate">{label}</p>
-                    <p className={`text-xs font-extrabold leading-none ${c}`}>{value}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-5 pt-2 border-t border-slate-800 mt-auto">
-                <a href="/projects/regwatch" className="text-sm font-bold text-amber-400 hover:text-amber-300 transition-colors">Full write-up &rarr;</a>
-                <a href="https://github.com/Sankartk/regwatch" className="text-sm font-bold text-slate-500 hover:text-slate-300 transition-colors" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          </div>{/* end 2x2 grid */}
+            </article>
+          ))}
+        </div>
       </section>
 
-      {/* CONTACT CTA */}
-      <section className="bg-slate-950 border-t border-slate-800">
-        <div className="max-w-screen-2xl mx-auto px-6 py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"/>
-              <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">available for new roles</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight max-w-lg">
-              Hiring for this kind of work? I&apos;d like to hear about it.
-            </h2>
-            <p className="text-slate-400 text-sm max-w-md leading-relaxed">
-              The projects above are the best representation of how I work — every one of them runs,
-              has tests, and has a write-up. If that&apos;s the kind of engineer you need, my inbox is open.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 flex-shrink-0">
-            <a
-              href="mailto:karthicks399@gmail.com"
-              className="bg-violet-700 hover:bg-violet-600 text-white font-bold text-sm px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
-            >
-              karthicks399@gmail.com →
-            </a>
-            <div className="flex gap-4 justify-center">
-              <a href="https://linkedin.com/in/sankartk11" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-white transition-colors">LinkedIn ↗</a>
-              <a href="https://github.com/Sankartk" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-slate-400 hover:text-white transition-colors">GitHub ↗</a>
-            </div>
+      {/* STACK */}
+      <section className="border-t border-stone-200 bg-[#f4f3ef]">
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-6">What I work with</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { domain: "Data", items: "Kafka, PostgreSQL, pgvector, Redshift, DynamoDB, Airflow, Glue" },
+              { domain: "Backend", items: "Java 21, Spring Boot, FastAPI, GraphQL, Docker" },
+              { domain: "Cloud & AI", items: "AWS (Bedrock, Step Functions, Lambda), Terraform, Ollama, FAISS" },
+              { domain: "Quant & systems", items: "C++20, order books, ITCH 5.0, backtesting, walk-forward" },
+            ].map(({ domain, items }) => (
+              <div key={domain}>
+                <h3 className="font-bold text-stone-900 text-sm mb-1.5">{domain}</h3>
+                <p className="text-stone-500 text-[13px] leading-relaxed">{items}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <footer className="bg-slate-950 border-t border-slate-800">
-        <div className="max-w-screen-2xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-600 font-mono">
-          <span>sankartk.dev · Newark, DE</span>
-          <span>built with Next.js · TypeScript · Tailwind</span>
+      {/* CONTACT */}
+      <section className="border-t border-stone-200">
+        <div className="max-w-4xl mx-auto px-6 py-16">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight max-w-lg mb-4">
+            Hiring for this kind of work? I&apos;d like to hear about it.
+          </h2>
+          <p className="text-stone-500 text-sm max-w-md leading-relaxed mb-6">
+            The projects above are the best representation of how I work. If that&apos;s the kind of
+            engineer you need, my inbox is open.
+          </p>
+          <a
+            href="mailto:karthicks399@gmail.com"
+            className="inline-block bg-stone-900 hover:bg-stone-700 text-white font-bold text-sm px-6 py-3 rounded-lg transition-colors"
+          >
+            karthicks399@gmail.com →
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-stone-200">
+        <div className="max-w-4xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-stone-400">
+          <span>Sankar Kalyanakumar · Newark, DE</span>
+          <div className="flex gap-5">
+            <a href="https://linkedin.com/in/sankartk11" className="hover:text-stone-600 transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/Sankartk" className="hover:text-stone-600 transition-colors" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
       </footer>
     </main>
